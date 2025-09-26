@@ -1,4 +1,4 @@
-import { MessageCircle, Instagram, Music, Youtube, Twitter } from "lucide-react";
+import { MessageCircle, Instagram, Music, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Socials = () => {
@@ -9,6 +9,20 @@ const Socials = () => {
       url: "https://tiktok.com/@murphyfinds",
       color: "bg-black hover:bg-gray-800",
       description: "Latest product finds & reviews"
+    },
+    {
+      name: "TikTok Lifestyle",
+      icon: Music,
+      url: "https://tiktok.com/@murphylifestyle",
+      color: "bg-gray-900 hover:bg-gray-700",
+      description: "Lifestyle content & daily vlogs"
+    },
+    {
+      name: "TikTok Reviews",
+      icon: Music,
+      url: "https://tiktok.com/@murphyreviews",
+      color: "bg-zinc-800 hover:bg-zinc-600",
+      description: "In-depth product reviews & comparisons"
     },
     {
       name: "Instagram",
@@ -30,13 +44,6 @@ const Socials = () => {
       url: "https://youtube.com/@murphyfinds",
       color: "bg-red-500 hover:bg-red-600",
       description: "Product unboxings & tutorials"
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/murphyfinds",
-      color: "bg-blue-500 hover:bg-blue-600",
-      description: "Quick updates & deal alerts"
     }
   ];
 
@@ -105,7 +112,7 @@ const Socials = () => {
             Don't Miss Out!
           </h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Each platform offers unique content - from quick deal alerts on Twitter to detailed unboxings on YouTube. 
+            Each platform offers unique content - from TikTok finds to detailed unboxings on YouTube. 
             Follow them all to get the complete Murphy Finds experience.
           </p>
           
