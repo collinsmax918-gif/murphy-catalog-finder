@@ -40,7 +40,7 @@ const Catalog = () => {
         </div>
         
         {/* Murphy Finds Title Image - Larger */}
-        <div className="flex justify-center pb-4">
+        <div className="flex justify-center pb-12">
           <img 
             src={murphyFindsTitle}
             alt="Murphy Finds Huge Spreadsheet"
