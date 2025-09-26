@@ -29,23 +29,20 @@ const Catalog = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Header with Murphy Banner */}
       <div className="relative border-b border-table-border bg-white overflow-hidden">
-        {/* Murphy Banner Image */}
-        <div className="w-full h-32 md:h-48 overflow-hidden">
+        {/* Murphy Banner Image - Smaller */}
+        <div className="flex justify-center py-4">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
-            className="w-full h-full object-cover object-center"
+            className="h-16 md:h-24 object-contain"
           />
         </div>
         
         {/* Content overlay */}
         <div className="bg-white">
-          <div className="container mx-auto px-4 py-12 relative">
+          <div className="container mx-auto px-4 py-8 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
-                <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-primary bg-clip-text text-transparent mb-6">
-                  🔍 Murphy's Product Catalog
-                </h1>
                 <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-slide-up">
                   Discover authentic Taobao & 1688 products in our <span className="text-primary font-semibold">spreadsheet-style</span> format. 
                   <br className="hidden md:block"/>
@@ -61,7 +58,7 @@ const Catalog = () => {
                     className="mb-8 h-12 px-8 text-base gradient-hero hover-lift rounded-xl shadow-medium"
                   >
                     <Mail className="mr-3 h-5 w-5" />
-                    📬 Get Product Updates
+                    📊 Get Spreadsheet Updates
                   </Button>
                 ) : (
                   <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium">
@@ -99,7 +96,7 @@ const Catalog = () => {
                   <div className="text-xs md:text-sm text-muted-foreground">Products</div>
                 </div>
                 <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-primary">✅</div>
+                  <div className="text-xl md:text-2xl font-bold text-primary">500+</div>
                   <div className="text-xs md:text-sm text-muted-foreground">Verified Sellers</div>
                 </div>
                 <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">

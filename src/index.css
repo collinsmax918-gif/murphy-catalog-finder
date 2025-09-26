@@ -65,14 +65,21 @@
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     
-    /* Animations */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-medium: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Gradients for visual interest */
-    --gradient-hero: linear-gradient(135deg, hsl(280 100% 50%) 0%, hsl(300 100% 60%) 50%, hsl(320 100% 65%) 100%);
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-table: linear-gradient(180deg, hsl(var(--table-header)) 0%, hsl(var(--secondary)) 100%);
+  /* Animations */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Gradients for visual interest */
+  --gradient-hero: linear-gradient(135deg, hsl(280 100% 50%) 0%, hsl(300 100% 60%) 50%, hsl(320 100% 65%) 100%);
+  --gradient-subtle: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
+  --gradient-table: linear-gradient(180deg, hsl(var(--table-header)) 0%, hsl(var(--secondary)) 100%);
+  
+  /* Colorful accents */
+  --accent-purple: 280 100% 60%;
+  --accent-pink: 320 100% 65%;
+  --accent-blue: 240 100% 65%;
+  --accent-green: 140 100% 50%;
+  --accent-orange: 30 100% 60%;
   }
 
   .dark {
@@ -203,5 +210,19 @@
   
   .gradient-subtle {
     background: var(--gradient-subtle);
+  }
+  
+  /* Pulse animation for success elements */
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
   }
 }
