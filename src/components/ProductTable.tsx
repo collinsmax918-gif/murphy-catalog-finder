@@ -57,74 +57,80 @@ const ProductTable = ({ products }: ProductTableProps) => {
       {/* Filters Header */}
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b border-table-border pb-4">
         <div className="space-y-4 animate-fade-in">
-          {/* Search */}
+          {/* Search - Mobile Optimized */}
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary animate-pulse-soft" />
             <Input
               placeholder="🔍 Search products, stores, or tags..."
-              className="pl-12 h-14 text-base bg-gradient-to-r from-background to-secondary border-2 border-primary/20 focus:border-primary/50 rounded-xl shadow-soft hover:shadow-medium transition-all duration-300"
+              className="pl-12 h-12 md:h-14 text-sm md:text-base bg-gradient-to-r from-background to-secondary border-2 border-primary/20 focus:border-primary/50 rounded-xl shadow-soft hover:shadow-medium transition-all duration-300"
               value={filters.search}
               onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
             />
           </div>
 
-          {/* Filter Row */}
-          <div className="flex flex-wrap gap-4 animate-slide-up">
-            <Select 
-              value={filters.category || "all"} 
-              onValueChange={(value) => setFilters(prev => ({ ...prev, category: value === "all" ? "" : value }))}
-            >
-              <SelectTrigger className="w-[170px] h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft">
-                <SelectValue placeholder="📂 Category" />
-              </SelectTrigger>
-              <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
-                <SelectItem value="all">📋 All Categories</SelectItem>
-                {categories.map(category => (
-                  <SelectItem key={category} value={category}>📦 {category}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select 
-              value={filters.store || "all"} 
-              onValueChange={(value) => setFilters(prev => ({ ...prev, store: value === "all" ? "" : value }))}
-            >
-              <SelectTrigger className="w-[190px] h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft">
-                <SelectValue placeholder="🏪 Store" />
-              </SelectTrigger>
-              <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
-                <SelectItem value="all">🏬 All Stores</SelectItem>
-                {stores.map(store => (
-                  <SelectItem key={store} value={store}>🏪 {store}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Button
-              variant={filters.inStock ? "default" : "outline"}
-              onClick={() => setFilters(prev => ({ ...prev, inStock: !prev.inStock }))}
-              className="h-11 px-6 rounded-lg hover-scale"
-            >
-              <Filter className="mr-2 h-4 w-4" />
-              ✅ In Stock Only
-            </Button>
-
-            {/* Clear Filters */}
-            {(filters.search || filters.category || filters.store || filters.inStock) && (
-              <Button
-                variant="outline"
-                onClick={() => setFilters({
-                  search: "",
-                  category: "",
-                  store: "",
-                  priceRange: [0, 1000],
-                  inStock: false,
-                })}
-                className="h-11 px-4 rounded-lg border-2 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground hover-scale"
+          {/* Filter Row - Mobile Optimized */}
+          <div className="space-y-3 md:space-y-0 md:flex md:flex-wrap md:gap-4 animate-slide-up">
+            {/* Mobile: Stack vertically, Desktop: Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-auto gap-3 md:gap-4 lg:flex lg:flex-wrap">
+              <Select 
+                value={filters.category || "all"} 
+                onValueChange={(value) => setFilters(prev => ({ ...prev, category: value === "all" ? "" : value }))}
               >
-                ❌ Clear Filters
+                <SelectTrigger className="w-full md:w-[170px] h-12 md:h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft text-sm">
+                  <SelectValue placeholder="📂 All Categories" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
+                  <SelectItem value="all">📋 All Categories</SelectItem>
+                  {categories.map(category => (
+                    <SelectItem key={category} value={category}>📦 {category}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select 
+                value={filters.store || "all"} 
+                onValueChange={(value) => setFilters(prev => ({ ...prev, store: value === "all" ? "" : value }))}
+              >
+                <SelectTrigger className="w-full md:w-[190px] h-12 md:h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft text-sm">
+                  <SelectValue placeholder="🏪 All Stores" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
+                  <SelectItem value="all">🏬 All Stores</SelectItem>
+                  {stores.map(store => (
+                    <SelectItem key={store} value={store}>🏪 {store}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Buttons Row */}
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Button
+                variant={filters.inStock ? "default" : "outline"}
+                onClick={() => setFilters(prev => ({ ...prev, inStock: !prev.inStock }))}
+                className="h-12 md:h-11 px-6 rounded-lg hover-scale text-sm flex-1 sm:flex-none"
+              >
+                <Filter className="mr-2 h-4 w-4" />
+                ✅ In Stock Only
               </Button>
-            )}
+
+              {/* Clear Filters */}
+              {(filters.search || filters.category || filters.store || filters.inStock) && (
+                <Button
+                  variant="outline"
+                  onClick={() => setFilters({
+                    search: "",
+                    category: "",
+                    store: "",
+                    priceRange: [0, 1000],
+                    inStock: false,
+                  })}
+                  className="h-12 md:h-11 px-4 rounded-lg border-2 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground hover-scale text-sm flex-1 sm:flex-none"
+                >
+                  ❌ Clear Filters
+                </Button>
+              )}
+            </div>
           </div>
 
           {/* Results Count */}
