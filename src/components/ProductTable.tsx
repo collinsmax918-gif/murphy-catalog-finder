@@ -33,8 +33,8 @@ const ProductTable = ({ products }: ProductTableProps) => {
       product.store.toLowerCase().includes(filters.search.toLowerCase()) ||
       product.tags.some(tag => tag.toLowerCase().includes(filters.search.toLowerCase()));
     
-    const matchesCategory = filters.category === "" || product.category === filters.category;
-    const matchesStore = filters.store === "" || product.store === filters.store;
+    const matchesCategory = filters.category === "" || filters.category === "all" || product.category === filters.category;
+    const matchesStore = filters.store === "" || filters.store === "all" || product.store === filters.store;
     const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
     const matchesStock = !filters.inStock || product.inStock;
 
@@ -71,14 +71,14 @@ const ProductTable = ({ products }: ProductTableProps) => {
           {/* Filter Row */}
           <div className="flex flex-wrap gap-3">
             <Select 
-              value={filters.category} 
-              onValueChange={(value) => setFilters(prev => ({ ...prev, category: value }))}
+              value={filters.category || "all"} 
+              onValueChange={(value) => setFilters(prev => ({ ...prev, category: value === "all" ? "" : value }))}
             >
               <SelectTrigger className="w-[160px]">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map(category => (
                   <SelectItem key={category} value={category}>{category}</SelectItem>
                 ))}
@@ -86,14 +86,14 @@ const ProductTable = ({ products }: ProductTableProps) => {
             </Select>
 
             <Select 
-              value={filters.store} 
-              onValueChange={(value) => setFilters(prev => ({ ...prev, store: value }))}
+              value={filters.store || "all"} 
+              onValueChange={(value) => setFilters(prev => ({ ...prev, store: value === "all" ? "" : value }))}
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Store" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Stores</SelectItem>
+                <SelectItem value="all">All Stores</SelectItem>
                 {stores.map(store => (
                   <SelectItem key={store} value={store}>{store}</SelectItem>
                 ))}
