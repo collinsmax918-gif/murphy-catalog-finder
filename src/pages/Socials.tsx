@@ -64,7 +64,7 @@ const Socials = () => {
     <div className="min-h-screen bg-background" key="socials-refresh">
       <div className="container mx-auto px-4 py-2">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-2">
+        <div className="text-center max-w-2xl mx-auto mb-8">
           <div className="mb-1">
             <img 
               src={followMySocials} 
