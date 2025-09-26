@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
 import { mockProducts } from "@/data/mockProducts";
 import { useToast } from "@/hooks/use-toast";
+import murphyBanner from "@/assets/murphy-banner.png";
 
 const Catalog = () => {
   const [email, setEmail] = useState("");
@@ -26,74 +27,85 @@ const Catalog = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Header */}
-      <div className="relative border-b border-table-border bg-gradient-to-br from-background via-secondary to-accent overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto px-4 py-16 relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent mb-6">
-                🔍 Murphy's Product Catalog
-              </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up">
-                Discover authentic Taobao & 1688 products in our <span className="text-primary font-semibold">spreadsheet-style</span> format. 
-                <br className="hidden md:block"/>
-                Professional product research made simple. 📊✨
-              </p>
-            </div>
-            
-            {/* Email Signup - Compact Design */}
-            <div className="animate-scale-in">
-              {!showEmailSignup ? (
-                <Button
-                  onClick={() => setShowEmailSignup(true)}
-                  className="mb-6 h-14 px-8 text-lg gradient-hero hover-lift rounded-xl shadow-medium"
-                >
-                  <Mail className="mr-3 h-5 w-5" />
-                  📬 Get Product Updates
-                </Button>
-              ) : (
-                <div className="bg-card/80 backdrop-blur-sm border border-table-border rounded-xl p-6 max-w-md mx-auto mb-6 shadow-medium">
-                  <form onSubmit={handleEmailSignup} className="space-y-4">
-                    <Input
-                      type="email"
-                      placeholder="✉️ Enter your email for updates"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="h-12 text-base"
-                    />
-                    <div className="flex gap-2">
-                      <Button type="submit" className="flex-1 h-12">
-                        Subscribe 🚀
-                      </Button>
-                      <Button 
-                        type="button" 
-                        variant="outline" 
-                        onClick={() => setShowEmailSignup(false)}
-                        className="px-4"
-                      >
-                        ❌
-                      </Button>
-                    </div>
-                  </form>
+      {/* Hero Header with Murphy Banner */}
+      <div className="relative border-b border-table-border bg-white overflow-hidden">
+        {/* Murphy Banner Image */}
+        <div className="w-full h-32 md:h-48 overflow-hidden">
+          <img 
+            src={murphyBanner}
+            alt="Murphy Reps Banner"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        
+        {/* Content overlay */}
+        <div className="bg-white">
+          <div className="container mx-auto px-4 py-12 relative">
+            <div className="text-center max-w-4xl mx-auto">
+              <div className="animate-fade-in">
+                <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-primary bg-clip-text text-transparent mb-6">
+                  🔍 Murphy's Product Catalog
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-slide-up">
+                  Discover authentic Taobao & 1688 products in our <span className="text-primary font-semibold">spreadsheet-style</span> format. 
+                  <br className="hidden md:block"/>
+                  Professional product research made simple. 📊✨
+                </p>
+              </div>
+              
+              {/* Email Signup - Compact Design */}
+              <div className="animate-scale-in">
+                {!showEmailSignup ? (
+                  <Button
+                    onClick={() => setShowEmailSignup(true)}
+                    className="mb-8 h-12 px-8 text-base gradient-hero hover-lift rounded-xl shadow-medium"
+                  >
+                    <Mail className="mr-3 h-5 w-5" />
+                    📬 Get Product Updates
+                  </Button>
+                ) : (
+                  <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium">
+                    <form onSubmit={handleEmailSignup} className="space-y-4">
+                      <Input
+                        type="email"
+                        placeholder="✉️ Enter your email for updates"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="h-12 text-base border-2 border-primary/30 focus:border-primary"
+                      />
+                      <div className="flex gap-2">
+                        <Button type="submit" className="flex-1 h-12 gradient-hero">
+                          Subscribe 🚀
+                        </Button>
+                        <Button 
+                          type="button" 
+                          variant="outline" 
+                          onClick={() => setShowEmailSignup(false)}
+                          className="px-4 border-2"
+                        >
+                          ❌
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                )}
+              </div>
+              
+              {/* Quick Stats */}
+              <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
+                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-primary">3000+</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Products</div>
                 </div>
-              )}
-            </div>
-            
-            {/* Quick Stats */}
-            <div className="flex justify-center gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="bg-card/60 backdrop-blur-sm rounded-lg px-6 py-3 border border-table-border">
-                <div className="text-2xl font-bold text-primary">{mockProducts.length}+</div>
-                <div className="text-sm text-muted-foreground">Products</div>
-              </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-lg px-6 py-3 border border-table-border">
-                <div className="text-2xl font-bold text-primary">5⭐</div>
-                <div className="text-sm text-muted-foreground">Quality</div>
-              </div>
-              <div className="bg-card/60 backdrop-blur-sm rounded-lg px-6 py-3 border border-table-border">
-                <div className="text-2xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground">Updates</div>
+                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-primary">✅</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Verified Sellers</div>
+                </div>
+                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-primary">24/7</div>
+                  <div className="text-xs md:text-sm text-muted-foreground">Updates</div>
+                </div>
               </div>
             </div>
           </div>
