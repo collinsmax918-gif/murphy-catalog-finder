@@ -162,11 +162,10 @@ const ProductTable = ({ products }: ProductTableProps) => {
               {/* Stock Badge */}
               <div className="absolute top-2 right-2">
                 <Badge 
-                  variant={product.inStock ? "default" : "secondary"} 
-                  className={`text-xs font-semibold ${
+                  className={`text-xs font-medium px-2 py-1 rounded-full ${
                     product.inStock 
-                      ? 'bg-success text-success-foreground animate-pulse-soft shadow-lg' 
-                      : 'bg-muted text-muted-foreground'
+                      ? 'bg-green-500/90 text-white' 
+                      : 'bg-red-500/90 text-white'
                   }`}
                 >
                   {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
@@ -175,7 +174,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
 
               {/* Store Badge */}
               <div className="absolute top-2 left-2">
-                <Badge className="text-xs bg-primary/90 text-primary-foreground shadow-lg">
+                <Badge className="text-xs font-medium px-2 py-1 rounded-full bg-primary/90 text-primary-foreground">
                   🏪 {product.store}
                 </Badge>
               </div>
@@ -189,7 +188,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               </h3>
 
               {/* Category */}
-              <Badge variant="outline" className="text-xs bg-accent/50 hover:bg-accent transition-colors w-fit">
+              <Badge className="text-xs font-medium px-2 py-1 rounded-full bg-accent/90 text-accent-foreground w-fit">
                 📂 {product.category}
               </Badge>
 
@@ -203,12 +202,12 @@ const ProductTable = ({ products }: ProductTableProps) => {
               {/* Tags */}
               <div className="flex flex-wrap gap-1 flex-grow">
                 {product.tags.slice(0, 2).map(tag => (
-                  <Badge key={tag} variant="outline" className="text-xs bg-secondary/50 hover:bg-secondary transition-colors">
+                  <Badge key={tag} className="text-xs font-medium px-2 py-1 rounded-full bg-secondary/90 text-secondary-foreground">
                     🏷️ {tag}
                   </Badge>
                 ))}
                 {product.tags.length > 2 && (
-                  <Badge variant="outline" className="text-xs bg-muted/50">
+                  <Badge className="text-xs font-medium px-2 py-1 rounded-full bg-muted/90 text-muted-foreground">
                     +{product.tags.length - 2}
                   </Badge>
                 )}
