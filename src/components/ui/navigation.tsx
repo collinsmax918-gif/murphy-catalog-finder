@@ -17,69 +17,76 @@ const Navigation = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-table-border bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
-              src={murphyFindsLogo} 
-              alt="Murphy Finds" 
-              className="h-28 md:h-32 w-auto brightness-0 invert"
-            />
-          </Link>
+    <>
+      {/* Announcement Bar */}
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 text-white text-center py-2 text-sm font-medium">
+        📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊
+      </div>
+      
+      <nav className="sticky top-0 z-50 border-b border-table-border bg-white/95 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <Link to="/" className="flex items-center">
+              <img 
+                src={murphyFindsLogo} 
+                alt="Murphy Finds" 
+                className="h-28 md:h-32 w-auto"
+              />
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`font-medium transition-colors duration-fast ${
-                  isActive(item.href)
-                    ? "text-white border-b-2 border-white"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden text-white hover:bg-white/10"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden border-t border-white/20 bg-gradient-to-b from-purple-800 to-pink-800">
-            <div className="py-4 space-y-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`block px-4 py-2 font-medium transition-colors duration-fast ${
+                  className={`font-medium transition-colors duration-fast ${
                     isActive(item.href)
-                      ? "text-white bg-white/10"
-                      : "text-white/80 hover:text-white hover:bg-white/5"
+                      ? "text-primary border-b-2 border-primary"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
-        )}
-      </div>
-    </nav>
+
+          {/* Mobile Navigation */}
+          {isOpen && (
+            <div className="md:hidden border-t border-table-border bg-background">
+              <div className="py-4 space-y-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`block px-4 py-2 font-medium transition-colors duration-fast ${
+                      isActive(item.href)
+                        ? "text-primary bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
+    </>
   );
 };
 

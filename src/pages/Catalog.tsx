@@ -26,7 +26,7 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-accent/20">
+    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-300 to-purple-500">
       {/* Hero Header with Murphy Banner */}
       <div className="relative border-b border-table-border bg-white overflow-hidden">
         {/* Murphy Banner Image - Larger */}
