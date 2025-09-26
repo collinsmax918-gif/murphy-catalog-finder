@@ -71,7 +71,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
           {/* Filter Row - Mobile Optimized */}
           <div className="space-y-3 md:space-y-0 md:flex md:flex-wrap md:gap-4 animate-slide-up">
             {/* Mobile: Stack vertically, Desktop: Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-auto gap-3 md:gap-4 lg:flex lg:flex-wrap">
+            <div className="grid grid-cols-1 lg:grid-cols-auto gap-3 md:gap-4 lg:flex lg:flex-wrap">
               <Select 
                 value={filters.category || "all"} 
                 onValueChange={(value) => setFilters(prev => ({ ...prev, category: value === "all" ? "" : value }))}
@@ -83,21 +83,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   <SelectItem value="all">📋 All Categories</SelectItem>
                   {categories.map(category => (
                     <SelectItem key={category} value={category}>📦 {category}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Select 
-                value={filters.store || "all"} 
-                onValueChange={(value) => setFilters(prev => ({ ...prev, store: value === "all" ? "" : value }))}
-              >
-                <SelectTrigger className="w-full md:w-[190px] h-12 md:h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft text-sm">
-                  <SelectValue placeholder="🏪 All Stores" />
-                </SelectTrigger>
-                <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
-                  <SelectItem value="all">🏬 All Stores</SelectItem>
-                  {stores.map(store => (
-                    <SelectItem key={store} value={store}>🏪 {store}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -115,7 +100,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               </Button>
 
               {/* Clear Filters */}
-              {(filters.search || filters.category || filters.store || filters.inStock) && (
+              {(filters.search || filters.category || filters.inStock) && (
                 <Button
                   variant="outline"
                   onClick={() => setFilters({
