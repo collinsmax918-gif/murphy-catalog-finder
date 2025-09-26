@@ -27,9 +27,9 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
         className
       )}
       style={{
-        fontSize: '11px',
+        fontSize: '12px',
         fontWeight: '500',
-        padding: '1px 4px',
+        padding: '1px 6px',
         minHeight: '14px',
         boxSizing: 'border-box',
         ...props.style
