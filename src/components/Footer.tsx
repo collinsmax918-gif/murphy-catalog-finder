@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import murphyLogo from "@/assets/murphy-logo.jpg";
+import murphyBannerFooter from "@/assets/murphy-banner-footer.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -36,13 +36,12 @@ const Footer = () => {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand & Description */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center">
               <img 
-                src={murphyLogo} 
-                alt="Murphy Finds" 
-                className="h-8 w-auto"
+                src={murphyBannerFooter} 
+                alt="Murphy Finds Banner" 
+                className="h-10 w-auto"
               />
-              <span className="font-bold text-xl text-card-foreground">Murphy Finds</span>
             </div>
             <p className="text-muted-foreground">
               Your trusted guide to authentic Taobao & 1688 products. 
