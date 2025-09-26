@@ -40,7 +40,7 @@ const Footer = () => {
               <img 
                 src={murphyBannerFooter} 
                 alt="Murphy Finds Banner" 
-                className="h-14 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-muted-foreground">
