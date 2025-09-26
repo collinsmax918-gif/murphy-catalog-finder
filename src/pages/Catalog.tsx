@@ -6,6 +6,7 @@ import ProductTable from "@/components/ProductTable";
 import { mockProducts } from "@/data/mockProducts";
 import { useToast } from "@/hooks/use-toast";
 import murphyBanner from "@/assets/murphy-banner.png";
+import murphyFindsTitle from "@/assets/murphy-finds-title.png";
 
 const Catalog = () => {
   const [email, setEmail] = useState("");
@@ -38,11 +39,13 @@ const Catalog = () => {
           />
         </div>
         
-        {/* Murphy Reps Title */}
+        {/* Murphy Finds Title Image */}
         <div className="flex justify-center pb-3">
-          <h1 className="text-xl md:text-2xl font-black uppercase text-gray-800 tracking-wider">
-            MURPHY REPS HUGE SPREADSHEET
-          </h1>
+          <img 
+            src={murphyFindsTitle}
+            alt="Murphy Finds Huge Spreadsheet"
+            className="h-16 md:h-20 object-contain"
+          />
         </div>
         
         {/* Content overlay */}
