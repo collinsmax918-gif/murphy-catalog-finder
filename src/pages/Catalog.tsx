@@ -26,9 +26,9 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50">
       {/* Hero Header with Murphy Banner */}
-      <div className="relative border-b border-table-border bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500 overflow-hidden">
+      <div className="relative border-b border-purple-200 bg-gradient-to-r from-white via-purple-50 to-pink-50 overflow-hidden">
         {/* Murphy Banner Image - Larger */}
         <div className="flex justify-center pt-2 pb-1">
           <img 
@@ -39,7 +39,7 @@ const Catalog = () => {
         </div>
         
         {/* Content overlay */}
-        <div className="bg-white/90 backdrop-blur-sm">
+        <div className="bg-white/95 backdrop-blur-sm">
           <div className="container mx-auto px-4 py-8 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
