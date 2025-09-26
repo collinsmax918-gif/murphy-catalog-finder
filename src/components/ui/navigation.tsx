@@ -17,7 +17,7 @@ const Navigation = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-table-border bg-background/95 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 border-b border-table-border gradient-hero backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -25,7 +25,7 @@ const Navigation = () => {
             <img 
               src={murphyFindsLogo} 
               alt="Murphy Finds" 
-              className="h-28 md:h-32 w-auto"
+              className="h-28 md:h-32 w-auto brightness-0 invert"
             />
           </Link>
 
@@ -37,8 +37,8 @@ const Navigation = () => {
                 to={item.href}
                 className={`font-medium transition-colors duration-fast ${
                   isActive(item.href)
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-white border-b-2 border-white"
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -50,7 +50,7 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden"
+            className="md:hidden text-white hover:bg-white/10"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -59,7 +59,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-table-border bg-background">
+          <div className="md:hidden border-t border-white/20 bg-gradient-to-b from-purple-600 to-pink-600">
             <div className="py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
@@ -67,8 +67,8 @@ const Navigation = () => {
                   to={item.href}
                   className={`block px-4 py-2 font-medium transition-colors duration-fast ${
                     isActive(item.href)
-                      ? "text-primary bg-accent"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                      ? "text-white bg-white/10"
+                      : "text-white/80 hover:text-white hover:bg-white/5"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
