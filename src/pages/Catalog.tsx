@@ -29,12 +29,12 @@ const Catalog = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Header with Murphy Banner */}
       <div className="relative border-b border-table-border bg-white overflow-hidden">
-        {/* Murphy Banner Image - Slightly Larger */}
-        <div className="flex justify-center py-2 pb-4">
+        {/* Murphy Banner Image - Larger */}
+        <div className="flex justify-center pt-2 pb-1">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
-            className="h-20 md:h-32 object-contain"
+            className="h-28 md:h-44 object-contain"
           />
         </div>
         
