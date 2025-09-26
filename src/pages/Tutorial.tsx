@@ -15,7 +15,7 @@ const Tutorial = () => {
     },
     {
       title: "Navigate to the Product",
-      description: "Click any 'View' button from our catalog to go directly to the product page on Taobao or 1688.",
+      description: "Click any 'View' button from our spreadsheet to go directly to the product page on Taobao or 1688.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
       tips: ["Our links take you directly to the product", "Check seller ratings before buying", "Read product reviews carefully"]
     },
@@ -139,7 +139,7 @@ const Tutorial = () => {
                 ) : (
                   <Link to="/">
                     <Button>
-                      Start Browsing Catalog
+                      Start Browsing Spreadsheet
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>

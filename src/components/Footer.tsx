@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
             <p className="text-muted-foreground">
               Your trusted guide to authentic Taobao & 1688 products. 
-              Discover quality items with our easy-to-use spreadsheet catalog format.
+              Discover quality items with our easy-to-use spreadsheet format.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social) => {
@@ -74,7 +74,7 @@ const Footer = () => {
                 to="/" 
                 className="block text-muted-foreground hover:text-primary transition-colors duration-fast"
               >
-                Product Catalog
+                Product Spreadsheet
               </Link>
               <Link 
                 to="/tutorial" 

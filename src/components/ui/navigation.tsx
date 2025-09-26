@@ -9,7 +9,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { href: "/", label: "Catalog" },
+    { href: "/", label: "Spreadsheet" },
     { href: "/socials", label: "Socials" },
     { href: "/tutorial", label: "How to Order" },
   ];
