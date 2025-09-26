@@ -11,7 +11,7 @@ const Socials = () => {
       description: "@murphyr3ps"
     },
     {
-      name: "TikTok",
+      name: "TikTok", 
       icon: Music,
       url: "https://tiktok.com/@murphyfinds",
       color: "bg-gray-900 hover:bg-gray-700",
@@ -20,7 +20,7 @@ const Socials = () => {
     {
       name: "TikTok",
       icon: Music,
-      url: "https://tiktok.com/@oldmoneymurphy",
+      url: "https://tiktok.com/@oldmoneymurphy", 
       color: "bg-zinc-800 hover:bg-zinc-600",
       description: "@oldmoneymurphy"
     },
