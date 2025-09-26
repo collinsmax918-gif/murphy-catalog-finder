@@ -1,7 +1,7 @@
 import { MessageCircle, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import followMySocials from "@/assets/follow-my-socials.png";
-import tiktokIcon from "@/assets/tiktok-logo-clean.svg";
+import tiktokIcon from "@/assets/tiktok-icon-original.webp";
 
 // Force refresh - timestamp: 1727395080000
 const Socials = () => {
