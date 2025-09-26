@@ -38,6 +38,13 @@ const Catalog = () => {
           />
         </div>
         
+        {/* Murphy Reps Title */}
+        <div className="flex justify-center pb-4">
+          <h1 className="text-2xl md:text-4xl font-black uppercase text-foreground tracking-wider">
+            MURPHY REPS HUGE SPREADSHEET
+          </h1>
+        </div>
+        
         {/* Content overlay */}
         <div className="bg-white">
           <div className="container mx-auto px-4 py-8 relative">
