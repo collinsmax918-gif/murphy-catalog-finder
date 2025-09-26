@@ -1,5 +1,6 @@
 import { MessageCircle, Instagram, Music, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import followMySocials from "@/assets/follow-my-socials.png";
 
 // Force refresh - timestamp: 1727395080000
 const Socials = () => {
@@ -64,9 +65,13 @@ const Socials = () => {
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Follow Murphy Finds Everywhere
-          </h1>
+          <div className="mb-4">
+            <img 
+              src={followMySocials} 
+              alt="Follow My Socials" 
+              className="mx-auto max-w-full h-auto"
+            />
+          </div>
           <p className="text-lg text-muted-foreground mb-8">
             Stay connected and never miss the latest product finds, reviews, and exclusive deals. 
             Join our community across all platforms!
