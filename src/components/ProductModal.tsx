@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { X, ExternalLink, Share2, Copy, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Product } from "@/types/product";
 import { useToast } from "@/hooks/use-toast";
 
