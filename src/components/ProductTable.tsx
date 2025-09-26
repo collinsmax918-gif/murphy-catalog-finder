@@ -246,9 +246,9 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 </div>
               </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1 flex-grow">
-                {product.tags.slice(0, 2).map(tag => (
+               {/* Tags */}
+               <div className="flex flex-wrap gap-1 flex-grow">
+                 {[product.store, ...product.tags].slice(0, 2).map(tag => (
                   <span 
                     key={tag} 
                     style={{

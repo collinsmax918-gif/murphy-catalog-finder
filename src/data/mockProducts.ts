@@ -9,7 +9,7 @@ export const mockProducts: Product[] = [
     price: 89.99,
     image_url: "https://images.unsplash.com/photo-1606841837239-c5a1a4a07af7?w=400&h=400&fit=crop",
     product_url: "https://taobao.com/example1",
-    tags: ["Summer drop", "Best seller", "Premium"],
+    tags: ["Summer drop", "Best seller"],
     description: "High-quality wireless earbuds with noise cancellation and premium sound quality.",
     inStock: true,
   },
