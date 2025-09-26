@@ -10,7 +10,7 @@ const Socials = () => {
       icon: Music,
       url: "https://tiktok.com/@murphyr3ps",
       color: "bg-black hover:bg-gray-800",
-      description: "@murphyr3ps"
+      description: "@murphyr3ps\nStreetwear, Finds, Life"
     },
     {
       id: "murphyfinds", 
@@ -18,7 +18,7 @@ const Socials = () => {
       icon: Music,
       url: "https://tiktok.com/@murphyfinds",
       color: "bg-gray-900 hover:bg-gray-700",
-      description: "@murphyfinds"
+      description: "@murphyfinds\nAll Finds, Rotations"
     },
     {
       id: "oldmoneymurphy",
@@ -26,7 +26,7 @@ const Socials = () => {
       icon: Music,
       url: "https://tiktok.com/@oldmoneymurphy", 
       color: "bg-zinc-800 hover:bg-zinc-600",
-      description: "@oldmoneymurphy"
+      description: "@oldmoneymurphy\nOld Money, Grisch, Accessories"
     },
     {
       id: "instagram",
@@ -98,7 +98,7 @@ const Socials = () => {
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground mb-4 flex-grow">
+                <p className="text-muted-foreground mb-4 flex-grow whitespace-pre-line">
                   {social.description}
                 </p>
                 
