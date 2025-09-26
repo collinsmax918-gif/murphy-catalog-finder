@@ -11,14 +11,14 @@ const Socials = () => {
       description: "Latest product finds & reviews"
     },
     {
-      name: "TikTok Lifestyle",
+      name: "TikTok",
       icon: Music,
       url: "https://tiktok.com/@murphylifestyle",
       color: "bg-gray-900 hover:bg-gray-700",
       description: "Lifestyle content & daily vlogs"
     },
     {
-      name: "TikTok Reviews",
+      name: "TikTok",
       icon: Music,
       url: "https://tiktok.com/@murphyreviews",
       color: "bg-zinc-800 hover:bg-zinc-600",
@@ -76,7 +76,7 @@ const Socials = () => {
             const IconComponent = social.icon;
             return (
               <div
-                key={social.name}
+                key={social.url}
                 className="group relative bg-card border border-table-border rounded-lg p-6 hover:shadow-medium transition-all duration-medium cursor-pointer flex flex-col h-full"
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
@@ -117,9 +117,9 @@ const Socials = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-3">
-            {socialLinks.slice(0, 3).map((social) => (
+            {socialLinks.filter(social => social.name !== "TikTok").map((social) => (
               <Button
-                key={social.name}
+                key={social.url}
                 variant="outline"
                 size="sm"
                 onClick={() => handleSocialClick(social.name, social.url)}
