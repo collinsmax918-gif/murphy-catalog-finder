@@ -77,7 +77,7 @@ const Socials = () => {
             />
           </div>
           
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent rounded-full text-accent-foreground text-sm font-medium mt-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent rounded-full text-accent-foreground text-sm font-medium mt-2">
             🎯 Find all my socials to keep up to date
           </div>
         </div>
