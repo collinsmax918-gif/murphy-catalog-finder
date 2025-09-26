@@ -21,9 +21,6 @@ const Tutorial = () => {
               className="mx-auto max-w-full h-auto"
             />
           </div>
-          <p className="text-lg text-black -mt-4 mb-0">
-            Your Complete Step By Step Guide On How To Order From iTaoBuy 🔮
-          </p>
           
           <div 
             className="relative cursor-pointer group max-w-2xl mx-auto rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 mt-1"
