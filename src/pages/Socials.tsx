@@ -1,6 +1,7 @@
-import { MessageCircle, Instagram, Music, Youtube } from "lucide-react";
+import { MessageCircle, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import followMySocials from "@/assets/follow-my-socials.png";
+import tiktokIcon from "@/assets/tiktok-icon.webp";
 
 // Force refresh - timestamp: 1727395080000
 const Socials = () => {
@@ -8,7 +9,8 @@ const Socials = () => {
     {
       id: "murphyr3ps",
       name: "TikTok",
-      icon: Music,
+      icon: null, // Will use custom image
+      customIcon: tiktokIcon,
       url: "https://tiktok.com/@murphyr3ps",
       color: "bg-black hover:bg-gray-800",
       description: "@murphyr3ps\nStreetwear, Finds, Life"
@@ -16,7 +18,8 @@ const Socials = () => {
     {
       id: "murphyfinds", 
       name: "TikTok",
-      icon: Music,
+      icon: null, // Will use custom image
+      customIcon: tiktokIcon,
       url: "https://tiktok.com/@murphyfinds",
       color: "bg-gray-900 hover:bg-gray-700",
       description: "@murphyfinds\nAll Finds, Rotations"
@@ -24,7 +27,8 @@ const Socials = () => {
     {
       id: "oldmoneymurphy",
       name: "TikTok",
-      icon: Music,
+      icon: null, // Will use custom image
+      customIcon: tiktokIcon,
       url: "https://tiktok.com/@oldmoneymurphy", 
       color: "bg-zinc-800 hover:bg-zinc-600",
       description: "@oldmoneymurphy\nOld Money, Grisch, Accessories"
@@ -89,8 +93,16 @@ const Socials = () => {
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className={`p-3 rounded-lg ${social.color} text-white group-hover:scale-110 transition-transform duration-medium`}>
-                    <IconComponent className="h-6 w-6" />
+                  <div className={`p-3 rounded-lg ${social.color} text-white group-hover:scale-110 transition-transform duration-medium flex items-center justify-center`}>
+                    {social.customIcon ? (
+                      <img 
+                        src={social.customIcon} 
+                        alt={`${social.name} icon`}
+                        className="h-6 w-6 object-contain"
+                      />
+                    ) : (
+                      <IconComponent className="h-6 w-6" />
+                    )}
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-card-foreground">
