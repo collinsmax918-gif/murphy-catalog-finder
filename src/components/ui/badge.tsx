@@ -6,7 +6,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 function Badge({ className, variant = "default", ...props }: BadgeProps) {
-  const baseStyles = "inline-flex items-center justify-center rounded-full border text-xs font-medium px-2 py-1 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 whitespace-nowrap shrink-0";
+  const baseStyles = "inline-flex items-center justify-center rounded-full border text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 whitespace-nowrap shrink-0";
   
   const variantStyles = {
     default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
@@ -25,7 +25,15 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
         baseStyles,
         variantStyles[variant],
         className
-      )} 
+      )}
+      style={{
+        fontSize: '12px',
+        fontWeight: '500',
+        padding: '4px 8px',
+        minHeight: '20px',
+        boxSizing: 'border-box',
+        ...props.style
+      }}
       {...props} 
     />
   );
