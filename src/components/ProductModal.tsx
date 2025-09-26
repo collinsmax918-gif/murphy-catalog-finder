@@ -120,9 +120,27 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
 
               {/* Stock Status */}
               <div className="flex items-center gap-2">
-                <Badge variant={product.inStock ? "default" : "secondary"}>
+                <span 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '9999px',
+                    border: '1px solid transparent',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    lineHeight: '1',
+                    padding: '4px 8px',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    minHeight: '20px',
+                    boxSizing: 'border-box',
+                    backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
+                    color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
+                  }}
+                >
                   {product.inStock ? "In Stock" : "Out of Stock"}
-                </Badge>
+                </span>
               </div>
 
                {/* Tags */}

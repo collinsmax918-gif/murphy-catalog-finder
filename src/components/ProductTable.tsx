@@ -161,18 +161,52 @@ const ProductTable = ({ products }: ProductTableProps) => {
               
               {/* Stock Badge */}
               <div className="absolute top-2 right-2">
-                <Badge 
-                  variant={product.inStock ? "success" : "error"}
+                <span 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '9999px',
+                    border: '1px solid transparent',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    lineHeight: '1',
+                    padding: '4px 8px',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    minHeight: '20px',
+                    boxSizing: 'border-box',
+                    backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
+                    color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
+                  }}
                 >
                   {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
-                </Badge>
+                </span>
               </div>
 
               {/* Store Badge */}
               <div className="absolute top-2 left-2">
-                <Badge variant="default">
+                <span 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '9999px',
+                    border: '1px solid transparent',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    lineHeight: '1',
+                    padding: '4px 8px',
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    minHeight: '20px',
+                    boxSizing: 'border-box',
+                    backgroundColor: 'hsl(var(--primary))',
+                    color: 'hsl(var(--primary-foreground))'
+                  }}
+                >
                   🏪 {product.store}
-                </Badge>
+                </span>
               </div>
             </div>
 
@@ -184,9 +218,28 @@ const ProductTable = ({ products }: ProductTableProps) => {
               </h3>
 
               {/* Category */}
-              <Badge variant="accent">
+              <span 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '9999px',
+                  border: '1px solid transparent',
+                  fontSize: '12px',
+                  fontWeight: '500',
+                  lineHeight: '1',
+                  padding: '4px 8px',
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                  minHeight: '20px',
+                  boxSizing: 'border-box',
+                  backgroundColor: 'hsl(var(--accent))',
+                  color: 'hsl(var(--accent-foreground))',
+                  width: 'fit-content'
+                }}
+              >
                 📂 {product.category}
-              </Badge>
+              </span>
 
               {/* Price */}
               <div className="flex items-center justify-between">
