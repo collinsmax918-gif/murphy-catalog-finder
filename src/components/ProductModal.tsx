@@ -129,7 +129,7 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                <div className="flex flex-wrap gap-2">
                  {product.tags.map((tag) => (
                    <Badge key={tag} variant="secondary">
-                     {tag}
+                     🏷️ {tag}
                    </Badge>
                  ))}
                </div>
