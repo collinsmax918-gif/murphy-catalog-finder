@@ -132,7 +132,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                      padding: '0px 6px',
                      whiteSpace: 'nowrap',
                      flexShrink: 0,
-                     minHeight: '14px',
                     boxSizing: 'border-box',
                     backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
                     color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
@@ -159,7 +158,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                         padding: '0px 6px',
                         whiteSpace: 'nowrap',
                         flexShrink: 0,
-                        minHeight: '14px',
                        boxSizing: 'border-box',
                        backgroundColor: 'hsl(var(--secondary))',
                        color: 'hsl(var(--secondary-foreground))'

@@ -30,7 +30,6 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
         fontSize: '12px',
         fontWeight: '500',
         padding: '0px 6px',
-        minHeight: '14px',
         boxSizing: 'border-box',
         ...props.style
       }}

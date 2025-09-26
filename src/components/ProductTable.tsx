@@ -173,7 +173,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                      padding: '0px 6px',
                      whiteSpace: 'nowrap',
                      flexShrink: 0,
-                     minHeight: '14px',
                     boxSizing: 'border-box',
                     backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
                     color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
@@ -198,7 +197,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                      padding: '0px 6px',
                      whiteSpace: 'nowrap',
                      flexShrink: 0,
-                     minHeight: '14px',
                     boxSizing: 'border-box',
                     backgroundColor: 'hsl(var(--primary))',
                     color: 'hsl(var(--primary-foreground))'
@@ -230,7 +228,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   padding: '0px 6px',
                   whiteSpace: 'nowrap',
                   flexShrink: 0,
-                  minHeight: '14px',
                   boxSizing: 'border-box',
                   backgroundColor: 'hsl(var(--accent))',
                   color: 'hsl(var(--accent-foreground))'
@@ -263,7 +260,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                        padding: '0px 6px',
                        whiteSpace: 'nowrap',
                        flexShrink: 0,
-                       minHeight: '14px',
                       boxSizing: 'border-box',
                       backgroundColor: 'hsl(var(--secondary))',
                       color: 'hsl(var(--secondary-foreground))'
@@ -286,7 +282,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                        padding: '0px 6px',
                        whiteSpace: 'nowrap',
                        flexShrink: 0,
-                       minHeight: '14px',
                       boxSizing: 'border-box',
                       backgroundColor: 'hsl(var(--muted))',
                       color: 'hsl(var(--muted-foreground))'
