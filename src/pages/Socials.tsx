@@ -11,20 +11,6 @@ const Socials = () => {
       description: "Latest product finds & reviews"
     },
     {
-      name: "TikTok",
-      icon: Music,
-      url: "https://tiktok.com/@murphylifestyle",
-      color: "bg-gray-900 hover:bg-gray-700",
-      description: "Lifestyle content & daily vlogs"
-    },
-    {
-      name: "TikTok",
-      icon: Music,
-      url: "https://tiktok.com/@murphyreviews",
-      color: "bg-zinc-800 hover:bg-zinc-600",
-      description: "In-depth product reviews & comparisons"
-    },
-    {
       name: "Instagram",
       icon: Instagram,
       url: "https://instagram.com/murphyfinds",
@@ -117,7 +103,7 @@ const Socials = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-3">
-            {socialLinks.filter(social => social.name !== "TikTok").map((social) => (
+            {socialLinks.slice(0, 3).map((social) => (
               <Button
                 key={social.url}
                 variant="outline"
