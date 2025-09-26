@@ -56,31 +56,31 @@ const ProductTable = ({ products }: ProductTableProps) => {
     <div className="space-y-6">
       {/* Filters Header */}
       <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b border-table-border pb-4">
-        <div className="space-y-4">
+        <div className="space-y-4 animate-fade-in">
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary animate-pulse-soft" />
             <Input
-              placeholder="Search products, stores, or tags..."
-              className="pl-10 h-12 text-base"
+              placeholder="🔍 Search products, stores, or tags..."
+              className="pl-12 h-14 text-base bg-gradient-to-r from-background to-secondary border-2 border-primary/20 focus:border-primary/50 rounded-xl shadow-soft hover:shadow-medium transition-all duration-300"
               value={filters.search}
               onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
             />
           </div>
 
           {/* Filter Row */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-4 animate-slide-up">
             <Select 
               value={filters.category || "all"} 
               onValueChange={(value) => setFilters(prev => ({ ...prev, category: value === "all" ? "" : value }))}
             >
-              <SelectTrigger className="w-[160px]">
-                <SelectValue placeholder="Category" />
+              <SelectTrigger className="w-[170px] h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft">
+                <SelectValue placeholder="📂 Category" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Categories</SelectItem>
+              <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
+                <SelectItem value="all">📋 All Categories</SelectItem>
                 {categories.map(category => (
-                  <SelectItem key={category} value={category}>{category}</SelectItem>
+                  <SelectItem key={category} value={category}>📦 {category}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -89,13 +89,13 @@ const ProductTable = ({ products }: ProductTableProps) => {
               value={filters.store || "all"} 
               onValueChange={(value) => setFilters(prev => ({ ...prev, store: value === "all" ? "" : value }))}
             >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Store" />
+              <SelectTrigger className="w-[190px] h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft">
+                <SelectValue placeholder="🏪 Store" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Stores</SelectItem>
+              <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium">
+                <SelectItem value="all">🏬 All Stores</SelectItem>
                 {stores.map(store => (
-                  <SelectItem key={store} value={store}>{store}</SelectItem>
+                  <SelectItem key={store} value={store}>🏪 {store}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -103,9 +103,10 @@ const ProductTable = ({ products }: ProductTableProps) => {
             <Button
               variant={filters.inStock ? "default" : "outline"}
               onClick={() => setFilters(prev => ({ ...prev, inStock: !prev.inStock }))}
+              className="h-11 px-6 rounded-lg hover-scale"
             >
               <Filter className="mr-2 h-4 w-4" />
-              In Stock Only
+              ✅ In Stock Only
             </Button>
 
             {/* Clear Filters */}
@@ -119,88 +120,113 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   priceRange: [0, 1000],
                   inStock: false,
                 })}
+                className="h-11 px-4 rounded-lg border-2 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground hover-scale"
               >
-                Clear Filters
+                ❌ Clear Filters
               </Button>
             )}
           </div>
 
           {/* Results Count */}
-          <div className="text-sm text-muted-foreground">
-            Showing {filteredProducts.length} of {products.length} products
+          <div className="flex items-center gap-2 text-sm font-medium">
+            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full">
+              📊 Showing {filteredProducts.length} of {products.length} products
+            </span>
+            {filteredProducts.length !== products.length && (
+              <span className="text-muted-foreground animate-pulse-soft">
+                🔍 Filtered results
+              </span>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Desktop Table */}
-      <div className="hidden md:block">
-        <div className="border border-table-border rounded-lg overflow-hidden">
+      {/* Desktop Spreadsheet */}
+      <div className="hidden md:block animate-fade-in">
+        <div className="border-2 border-table-border rounded-xl overflow-hidden shadow-medium bg-card">
           <table className="w-full">
-            <thead className="bg-table-header">
+            <thead className="spreadsheet-header">
               <tr>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Image</th>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Product</th>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Store</th>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Price</th>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Tags</th>
-                <th className="text-left p-4 font-semibold text-table-header-foreground">Action</th>
+                <th className="spreadsheet-cell py-4 w-20">🖼️ Image</th>
+                <th className="spreadsheet-cell py-4">📦 Product Details</th>
+                <th className="spreadsheet-cell py-4 w-48">🏪 Store</th>
+                <th className="spreadsheet-cell py-4 w-32">💰 Price</th>
+                <th className="spreadsheet-cell py-4 w-52">🏷️ Tags</th>
+                <th className="spreadsheet-cell py-4 w-32">🔗 Action</th>
               </tr>
             </thead>
             <tbody>
               {filteredProducts.map((product, index) => (
                 <tr
                   key={product.sku}
-                  className={`cursor-pointer transition-colors duration-fast hover:bg-table-row-hover ${
+                  className={`spreadsheet-row ${
                     index % 2 === 0 ? 'bg-table-row-even' : 'bg-table-row-odd'
                   }`}
                   onClick={() => handleProductClick(product)}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <td className="p-4">
-                    <img
-                      src={product.image_url}
-                      alt={product.title}
-                      className="w-12 h-12 rounded object-cover"
-                    />
-                  </td>
-                  <td className="p-4">
-                    <div className="font-medium text-foreground line-clamp-2">
-                      {product.title}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {product.category}
+                  <td className="spreadsheet-cell">
+                    <div className="relative">
+                      <img
+                        src={product.image_url}
+                        alt={product.title}
+                        className="w-14 h-14 rounded-lg object-cover shadow-soft hover:shadow-medium transition-all duration-300 hover-scale"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </td>
-                  <td className="p-4 text-foreground">{product.store}</td>
-                  <td className="p-4">
-                    <div className="font-semibold text-foreground">
-                      ${product.price.toFixed(2)}
+                  <td className="spreadsheet-cell">
+                    <div className="space-y-1">
+                      <div className="font-semibold text-foreground line-clamp-2 hover:text-primary transition-colors duration-200">
+                        {product.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground bg-secondary/50 px-2 py-1 rounded-full w-fit">
+                        📂 {product.category}
+                      </div>
+                      <div className="text-xs text-muted-foreground font-mono">
+                        SKU: {product.sku}
+                      </div>
                     </div>
-                    <Badge variant={product.inStock ? "default" : "secondary"} className="mt-1">
-                      {product.inStock ? "In Stock" : "Out of Stock"}
-                    </Badge>
                   </td>
-                  <td className="p-4">
+                  <td className="spreadsheet-cell">
+                    <div className="font-medium text-foreground">🏪 {product.store}</div>
+                  </td>
+                  <td className="spreadsheet-cell">
+                    <div className="space-y-2">
+                      <div className="text-lg font-bold text-primary">
+                        ${product.price.toFixed(2)}
+                      </div>
+                      <Badge 
+                        variant={product.inStock ? "default" : "secondary"} 
+                        className={`text-xs ${product.inStock ? 'animate-pulse-soft' : ''}`}
+                      >
+                        {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
+                      </Badge>
+                    </div>
+                  </td>
+                  <td className="spreadsheet-cell">
                     <div className="flex flex-wrap gap-1">
                       {product.tags.slice(0, 2).map(tag => (
-                        <Badge key={tag} variant="outline" className="text-xs">
-                          {tag}
+                        <Badge key={tag} variant="outline" className="text-xs hover-scale">
+                          🏷️ {tag}
                         </Badge>
                       ))}
                       {product.tags.length > 2 && (
-                        <Badge variant="outline" className="text-xs">
-                          +{product.tags.length - 2}
+                        <Badge variant="outline" className="text-xs hover-scale">
+                          +{product.tags.length - 2} more
                         </Badge>
                       )}
                     </div>
                   </td>
-                  <td className="p-4">
+                  <td className="spreadsheet-cell">
                     <Button
                       size="sm"
                       onClick={(e) => handleDirectLink(product, e)}
                       disabled={!product.inStock}
+                      className="w-full hover-lift"
                     >
                       <ExternalLink className="mr-1 h-3 w-3" />
-                      View
+                      {product.inStock ? "🚀 View" : "❌ Unavailable"}
                     </Button>
                   </td>
                 </tr>
