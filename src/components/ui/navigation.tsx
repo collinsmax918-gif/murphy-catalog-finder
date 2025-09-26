@@ -21,13 +21,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img 
-              src={murphyLogo} 
-              alt="Murphy Finds" 
-              className="h-8 w-auto"
-            />
-            <span className="font-bold text-xl text-foreground">Murphy Finds</span>
+          <Link to="/" className="flex items-center">
+            <span className="font-black text-2xl text-foreground uppercase tracking-wide">Murphy Finds</span>
           </Link>
 
           {/* Desktop Navigation */}
