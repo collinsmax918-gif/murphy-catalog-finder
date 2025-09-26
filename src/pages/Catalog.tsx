@@ -26,9 +26,9 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-300 to-purple-500">
+    <div className="min-h-screen bg-background">
       {/* Hero Header with Murphy Banner */}
-      <div className="relative border-b border-table-border bg-white overflow-hidden">
+      <div className="relative border-b border-table-border bg-gradient-to-br from-purple-400 via-pink-300 to-purple-500 overflow-hidden">
         {/* Murphy Banner Image - Larger */}
         <div className="flex justify-center pt-2 pb-1">
           <img 
@@ -40,18 +40,18 @@ const Catalog = () => {
         
         {/* Murphy Reps Title */}
         <div className="flex justify-center pb-4">
-          <h1 className="text-2xl md:text-4xl font-black uppercase text-foreground tracking-wider">
+          <h1 className="text-2xl md:text-4xl font-black uppercase text-white tracking-wider">
             MURPHY REPS HUGE SPREADSHEET
           </h1>
         </div>
         
         {/* Content overlay */}
-        <div className="bg-white">
+        <div className="bg-gradient-to-br from-purple-400 via-pink-300 to-purple-500">
           <div className="container mx-auto px-4 py-8 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
-                <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-slide-up">
-                  Discover authentic Taobao & 1688 products in our <span className="text-primary font-semibold">spreadsheet-style</span> format. 
+                <p className="text-lg md:text-xl text-white/90 mb-8 animate-slide-up">
+                  Discover authentic Taobao & 1688 products in our <span className="text-white font-semibold">spreadsheet-style</span> format. 
                   <br className="hidden md:block"/>
                   Professional product research made simple. 📊✨
                 </p>
@@ -98,17 +98,17 @@ const Catalog = () => {
               
               {/* Quick Stats */}
               <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-primary">3000+</div>
-                  <div className="text-xs md:text-sm text-muted-foreground">Products</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-white/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">3000+</div>
+                  <div className="text-xs md:text-sm text-white/80">Products</div>
                 </div>
-                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-primary">500+</div>
-                  <div className="text-xs md:text-sm text-muted-foreground">Verified Sellers</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-white/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">500+</div>
+                  <div className="text-xs md:text-sm text-white/80">Verified Sellers</div>
                 </div>
-                <div className="bg-primary/5 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-primary/20 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-xs md:text-sm text-muted-foreground">Updates</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-white/20 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">24/7</div>
+                  <div className="text-xs md:text-sm text-white/80">Updates</div>
                 </div>
               </div>
             </div>
