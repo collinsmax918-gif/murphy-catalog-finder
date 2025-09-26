@@ -31,7 +31,7 @@ const Catalog = () => {
       {/* Hero Header with Murphy Banner */}
       <div className="relative border-b border-table-border bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
         {/* Murphy Banner Image - Larger */}
-        <div className="flex justify-center pt-4 pb-2">
+        <div className="flex justify-center pt-12 pb-2">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
