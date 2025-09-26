@@ -35,7 +35,7 @@ const Catalog = () => {
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
-            className="h-32 md:h-48 object-contain"
+            className="h-24 md:h-48 object-contain"
           />
         </div>
         
@@ -44,7 +44,7 @@ const Catalog = () => {
           <img 
             src={murphyFindsTitle}
             alt="Murphy Finds Huge Spreadsheet"
-            className="h-28 md:h-40 object-contain"
+            className="h-20 md:h-40 object-contain"
           />
         </div>
         
