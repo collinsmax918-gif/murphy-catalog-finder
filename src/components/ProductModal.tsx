@@ -128,9 +128,28 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                {/* Tags */}
                <div className="flex flex-wrap gap-2">
                  {product.tags.map((tag) => (
-                   <Badge key={tag} variant="secondary">
+                   <span 
+                     key={tag}
+                     style={{
+                       display: 'inline-flex',
+                       alignItems: 'center',
+                       justifyContent: 'center',
+                       borderRadius: '9999px',
+                       border: '1px solid transparent',
+                       fontSize: '12px',
+                       fontWeight: '500',
+                       lineHeight: '1',
+                       padding: '4px 8px',
+                       whiteSpace: 'nowrap',
+                       flexShrink: 0,
+                       minHeight: '20px',
+                       boxSizing: 'border-box',
+                       backgroundColor: 'hsl(var(--secondary))',
+                       color: 'hsl(var(--secondary-foreground))'
+                     }}
+                   >
                      🏷️ {tag}
-                   </Badge>
+                   </span>
                  ))}
                </div>
 

@@ -198,14 +198,51 @@ const ProductTable = ({ products }: ProductTableProps) => {
               {/* Tags */}
               <div className="flex flex-wrap gap-1 flex-grow">
                 {product.tags.slice(0, 2).map(tag => (
-                  <Badge key={tag} variant="secondary">
+                  <span 
+                    key={tag} 
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: '9999px',
+                      border: '1px solid transparent',
+                      fontSize: '12px',
+                      fontWeight: '500',
+                      lineHeight: '1',
+                      padding: '4px 8px',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                      minHeight: '20px',
+                      boxSizing: 'border-box',
+                      backgroundColor: 'hsl(var(--secondary))',
+                      color: 'hsl(var(--secondary-foreground))'
+                    }}
+                  >
                     🏷️ {tag}
-                  </Badge>
+                  </span>
                 ))}
                 {product.tags.length > 2 && (
-                  <Badge variant="muted">
+                  <span 
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderRadius: '9999px',
+                      border: '1px solid transparent',
+                      fontSize: '12px',
+                      fontWeight: '500',
+                      lineHeight: '1',
+                      padding: '4px 8px',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
+                      minHeight: '20px',
+                      boxSizing: 'border-box',
+                      backgroundColor: 'hsl(var(--muted))',
+                      color: 'hsl(var(--muted-foreground))'
+                    }}
+                  >
                     +{product.tags.length - 2}
-                  </Badge>
+                  </span>
                 )}
               </div>
 
