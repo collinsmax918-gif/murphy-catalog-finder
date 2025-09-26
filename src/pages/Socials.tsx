@@ -105,7 +105,7 @@ const Socials = () => {
                 
                 <Button 
                   variant="outline" 
-                  className="w-full h-12 gradient-hero text-white border-0 hover-scale rounded-xl shadow-medium mt-auto"
+                  className="w-full h-12 border-2 border-primary/30 hover:gradient-hero hover:text-white hover:border-0 transition-all duration-500 ease-in-out hover-scale rounded-xl shadow-medium mt-auto"
                 >
                   Follow on {social.name}
                 </Button>
