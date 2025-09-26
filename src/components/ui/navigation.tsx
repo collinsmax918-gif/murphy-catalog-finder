@@ -19,13 +19,13 @@ const Navigation = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-table-border bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto px-4">
-        <div className="flex h-20 md:h-24 items-center justify-between">
+        <div className="flex h-12 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={murphyFindsLogo} 
               alt="Murphy Finds" 
-              className="h-16 md:h-20 w-auto"
+              className="h-24 md:h-28 w-auto"
             />
           </Link>
 
