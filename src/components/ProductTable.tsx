@@ -142,98 +142,96 @@ const ProductTable = ({ products }: ProductTableProps) => {
       </div>
 
       {/* Product Grid */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 animate-fade-in">
-          {filteredProducts.map((product, index) => (
-            <div
-              key={product.sku}
-              className="bg-white/95 backdrop-blur-sm border border-purple-100 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:shadow-purple-200/50 hover:-translate-y-2 transition-all duration-300 group"
-              onClick={() => handleProductClick(product)}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Product Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={product.image_url}
-                  alt={product.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Stock Badge */}
-                <div className="absolute top-3 right-3">
-                  <Badge 
-                    variant={product.inStock ? "default" : "secondary"} 
-                    className={`text-xs font-semibold ${
-                      product.inStock 
-                        ? 'bg-green-500 text-white shadow-lg' 
-                        : 'bg-gray-400 text-white'
-                    }`}
-                  >
-                    {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
-                  </Badge>
-                </div>
-
-                {/* Store Badge */}
-                <div className="absolute top-3 left-3">
-                  <Badge className="text-xs bg-purple-500 text-white shadow-lg">
-                    🏪 {product.store}
-                  </Badge>
-                </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 animate-fade-in">
+        {filteredProducts.map((product, index) => (
+          <div
+            key={product.sku}
+            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            onClick={() => handleProductClick(product)}
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            {/* Product Image */}
+            <div className="relative overflow-hidden">
+              <img
+                src={product.image_url}
+                alt={product.title}
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Stock Badge */}
+              <div className="absolute top-2 right-2">
+                <Badge 
+                  variant={product.inStock ? "default" : "secondary"} 
+                  className={`text-xs font-semibold ${
+                    product.inStock 
+                      ? 'bg-success text-success-foreground animate-pulse-soft shadow-lg' 
+                      : 'bg-muted text-muted-foreground'
+                  }`}
+                >
+                  {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
+                </Badge>
               </div>
 
-              {/* Product Details */}
-              <div className="p-4 space-y-3 bg-gradient-to-b from-white to-purple-50/30">
-                {/* Title */}
-                <h3 className="font-semibold text-sm line-clamp-2 text-gray-800 group-hover:text-purple-700 transition-colors duration-200 min-h-[2.5rem]">
-                  {product.title}
-                </h3>
-
-                {/* Category */}
-                <Badge variant="outline" className="text-xs bg-purple-50 border-purple-200 text-purple-700 hover:bg-purple-100 transition-colors">
-                  📂 {product.category}
+              {/* Store Badge */}
+              <div className="absolute top-2 left-2">
+                <Badge className="text-xs bg-primary/90 text-primary-foreground shadow-lg">
+                  🏪 {product.store}
                 </Badge>
-
-                {/* Price */}
-                <div className="flex items-center justify-between">
-                  <div className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    ${product.price.toFixed(2)}
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1">
-                  {product.tags.slice(0, 2).map(tag => (
-                    <Badge key={tag} variant="outline" className="text-xs bg-gray-50 border-gray-200 text-gray-600 hover:bg-gray-100 transition-colors">
-                      🏷️ {tag}
-                    </Badge>
-                  ))}
-                  {product.tags.length > 2 && (
-                    <Badge variant="outline" className="text-xs bg-gray-100 border-gray-200 text-gray-500">
-                      +{product.tags.length - 2}
-                    </Badge>
-                  )}
-                </div>
-
-                {/* Action Button */}
-                <Button
-                  size="sm"
-                  onClick={(e) => handleDirectLink(product, e)}
-                  disabled={!product.inStock}
-                  className="w-full mt-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 disabled:opacity-50 hover:-translate-y-1 transition-all duration-200"
-                >
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  {product.inStock ? "🚀 View Product" : "❌ Unavailable"}
-                </Button>
-
-                {/* SKU */}
-                <div className="text-xs text-gray-500 font-mono text-center border-t pt-2 border-purple-100">
-                  SKU: {product.sku}
-                </div>
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* Product Details */}
+            <div className="p-4 space-y-3">
+              {/* Title */}
+              <h3 className="font-semibold text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-200 min-h-[2.5rem]">
+                {product.title}
+              </h3>
+
+              {/* Category */}
+              <Badge variant="outline" className="text-xs bg-accent/50 hover:bg-accent transition-colors">
+                📂 {product.category}
+              </Badge>
+
+              {/* Price */}
+              <div className="flex items-center justify-between">
+                <div className="text-xl font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  ${product.price.toFixed(2)}
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1">
+                {product.tags.slice(0, 2).map(tag => (
+                  <Badge key={tag} variant="outline" className="text-xs bg-secondary/50 hover:bg-secondary transition-colors">
+                    🏷️ {tag}
+                  </Badge>
+                ))}
+                {product.tags.length > 2 && (
+                  <Badge variant="outline" className="text-xs bg-muted/50">
+                    +{product.tags.length - 2}
+                  </Badge>
+                )}
+              </div>
+
+              {/* Action Button */}
+              <Button
+                size="sm"
+                onClick={(e) => handleDirectLink(product, e)}
+                disabled={!product.inStock}
+                className="w-full mt-3 gradient-hero hover:opacity-90 disabled:opacity-50 hover-lift"
+              >
+                <ExternalLink className="mr-2 h-4 w-4" />
+                {product.inStock ? "🚀 View Product" : "❌ Unavailable"}
+              </Button>
+
+              {/* SKU */}
+              <div className="text-xs text-muted-foreground font-mono text-center border-t pt-2 border-border/50">
+                SKU: {product.sku}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* Empty State */}
