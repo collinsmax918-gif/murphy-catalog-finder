@@ -62,10 +62,10 @@ const Socials = () => {
 
   return (
     <div className="min-h-screen bg-background" key="socials-refresh">
-      <div className="container mx-auto px-4 py-2">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-2">
-          <div className="mb-1">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="mb-4">
             <img 
               src={followMySocials} 
               alt="Follow My Socials" 
