@@ -31,7 +31,7 @@ const Navigation = () => {
               <img 
                 src={murphyFindsLogo} 
                 alt="Murphy Finds" 
-                className="h-28 md:h-32 w-auto"
+                className="h-36 md:h-40 w-auto"
               />
             </Link>
 
