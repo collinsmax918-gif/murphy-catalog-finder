@@ -1,12 +1,11 @@
 import { MessageCircle, Instagram, Music, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Force refresh - timestamp: 1727395080000
 const Socials = () => {
-  // Debug: Check what's in socialLinks
-  console.log("Socials component rendering - timestamp:", Date.now());
-  
   const socialLinks = [
     {
+      id: "murphyr3ps",
       name: "TikTok",
       icon: Music,
       url: "https://tiktok.com/@murphyr3ps",
@@ -14,13 +13,15 @@ const Socials = () => {
       description: "@murphyr3ps"
     },
     {
-      name: "TikTok", 
+      id: "murphyfinds", 
+      name: "TikTok",
       icon: Music,
       url: "https://tiktok.com/@murphyfinds",
       color: "bg-gray-900 hover:bg-gray-700",
       description: "@murphyfinds"
     },
     {
+      id: "oldmoneymurphy",
       name: "TikTok",
       icon: Music,
       url: "https://tiktok.com/@oldmoneymurphy", 
@@ -28,6 +29,7 @@ const Socials = () => {
       description: "@oldmoneymurphy"
     },
     {
+      id: "instagram",
       name: "Instagram",
       icon: Instagram,
       url: "https://instagram.com/murphyfinds",
@@ -35,6 +37,7 @@ const Socials = () => {
       description: "Behind-the-scenes & product photos"
     },
     {
+      id: "discord",
       name: "Discord",
       icon: MessageCircle,
       url: "https://discord.gg/murphyfinds",
@@ -42,6 +45,7 @@ const Socials = () => {
       description: "Join our community discussions"
     },
     {
+      id: "youtube",
       name: "YouTube",
       icon: Youtube,
       url: "https://youtube.com/@murphyfinds",
@@ -49,9 +53,6 @@ const Socials = () => {
       description: "Product unboxings & tutorials"
     }
   ];
-  
-  // Debug: Log the socialLinks array
-  console.log("socialLinks array:", socialLinks.map(s => ({ name: s.name, description: s.description })));
 
   const handleSocialClick = (platform: string, url: string) => {
     console.log('Social click tracked:', platform);
@@ -59,7 +60,7 @@ const Socials = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" key="socials-refresh">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
@@ -78,12 +79,11 @@ const Socials = () => {
 
         {/* Social Links Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-          {socialLinks.map((social, index) => {
+          {socialLinks.map((social) => {
             const IconComponent = social.icon;
-            console.log(`Rendering social ${index}:`, social.name, social.description);
             return (
               <div
-                key={`${social.url}-${index}`}
+                key={social.id}
                 className="group relative bg-card border border-table-border rounded-lg p-6 hover:shadow-medium transition-all duration-medium cursor-pointer flex flex-col h-full"
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
@@ -126,7 +126,7 @@ const Socials = () => {
           <div className="flex flex-wrap justify-center gap-3">
             {socialLinks.slice(0, 3).map((social) => (
               <Button
-                key={social.url}
+                key={social.id}
                 variant="outline"
                 size="sm"
                 onClick={() => handleSocialClick(social.name, social.url)}
