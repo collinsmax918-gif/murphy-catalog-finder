@@ -31,7 +31,7 @@ const Catalog = () => {
       {/* Hero Header with Murphy Banner */}
       <div className="relative border-b border-table-border bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
         {/* Murphy Banner Image - Smaller */}
-        <div className="flex justify-center pt-2 pb-1">
+        <div className="flex justify-center pt-12 pb-1">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
@@ -40,11 +40,11 @@ const Catalog = () => {
         </div>
         
         {/* Murphy Finds Title Image */}
-        <div className="flex justify-center pb-3">
+        <div className="flex justify-center pb-6">
           <img 
             src={murphyFindsTitle}
             alt="Murphy Finds Huge Spreadsheet"
-            className="h-16 md:h-20 object-contain"
+            className="h-20 md:h-28 object-contain"
           />
         </div>
         
