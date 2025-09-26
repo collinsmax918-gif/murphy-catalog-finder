@@ -85,7 +85,7 @@ const Socials = () => {
             return (
               <div
                 key={social.id}
-                className="group relative bg-card border border-table-border rounded-lg p-6 hover:shadow-medium transition-all duration-medium cursor-pointer flex flex-col h-full"
+                className="group relative bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 hover:shadow-medium transition-all duration-medium cursor-pointer flex flex-col h-full hover-lift"
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
                 <div className="flex items-center space-x-4 mb-4">
@@ -105,7 +105,7 @@ const Socials = () => {
                 
                 <Button 
                   variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors duration-medium mt-auto"
+                  className="w-full h-12 gradient-hero text-white border-0 hover-scale rounded-xl shadow-medium mt-auto"
                 >
                   Follow on {social.name}
                 </Button>
