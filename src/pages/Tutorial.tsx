@@ -11,7 +11,7 @@ const Tutorial = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center max-w-3xl mx-auto">
           <div className="-mb-10 -mt-6">
