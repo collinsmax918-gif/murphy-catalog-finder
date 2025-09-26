@@ -2,6 +2,9 @@ import { MessageCircle, Instagram, Music, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Socials = () => {
+  // Debug: Check what's in socialLinks
+  console.log("Socials component rendering - timestamp:", Date.now());
+  
   const socialLinks = [
     {
       name: "TikTok",
@@ -46,6 +49,9 @@ const Socials = () => {
       description: "Product unboxings & tutorials"
     }
   ];
+  
+  // Debug: Log the socialLinks array
+  console.log("socialLinks array:", socialLinks.map(s => ({ name: s.name, description: s.description })));
 
   const handleSocialClick = (platform: string, url: string) => {
     console.log('Social click tracked:', platform);
@@ -72,11 +78,12 @@ const Socials = () => {
 
         {/* Social Links Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
-          {socialLinks.map((social) => {
+          {socialLinks.map((social, index) => {
             const IconComponent = social.icon;
+            console.log(`Rendering social ${index}:`, social.name, social.description);
             return (
               <div
-                key={social.url}
+                key={`${social.url}-${index}`}
                 className="group relative bg-card border border-table-border rounded-lg p-6 hover:shadow-medium transition-all duration-medium cursor-pointer flex flex-col h-full"
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
