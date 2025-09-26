@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import howToOrderTitle from "@/assets/how-to-order-title.png";
 
 const Tutorial = () => {
   const videoId = "P-pcMBkujss";
@@ -13,9 +14,16 @@ const Tutorial = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-            How to Order
-          </h1>
+          <div className="mb-4">
+            <img 
+              src={howToOrderTitle} 
+              alt="How to Order" 
+              className="mx-auto max-w-full h-auto"
+            />
+          </div>
+          <p className="text-lg text-muted-foreground mb-12">
+            Your Complete Step By Step Guide On How To Order From iTaoBuy 🔮
+          </p>
           
           <div 
             className="relative cursor-pointer group max-w-2xl mx-auto rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
