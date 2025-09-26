@@ -17,7 +17,7 @@ const Navigation = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-table-border gradient-hero backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 border-b border-table-border bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -59,7 +59,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t border-white/20 bg-gradient-to-b from-purple-600 to-pink-600">
+          <div className="md:hidden border-t border-white/20 bg-gradient-to-b from-purple-800 to-pink-800">
             <div className="py-4 space-y-4">
               {navItems.map((item) => (
                 <Link
