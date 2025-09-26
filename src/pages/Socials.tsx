@@ -1,0 +1,130 @@
+import { MessageCircle, Instagram, Music, Youtube, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Socials = () => {
+  const socialLinks = [
+    {
+      name: "TikTok",
+      icon: Music,
+      url: "https://tiktok.com/@murphyfinds",
+      color: "bg-black hover:bg-gray-800",
+      description: "Latest product finds & reviews"
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://instagram.com/murphyfinds",
+      color: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
+      description: "Behind-the-scenes & product photos"
+    },
+    {
+      name: "Discord",
+      icon: MessageCircle,
+      url: "https://discord.gg/murphyfinds",
+      color: "bg-indigo-500 hover:bg-indigo-600",
+      description: "Join our community discussions"
+    },
+    {
+      name: "YouTube",
+      icon: Youtube,
+      url: "https://youtube.com/@murphyfinds",
+      color: "bg-red-500 hover:bg-red-600",
+      description: "Product unboxings & tutorials"
+    },
+    {
+      name: "Twitter",
+      icon: Twitter,
+      url: "https://twitter.com/murphyfinds",
+      color: "bg-blue-500 hover:bg-blue-600",
+      description: "Quick updates & deal alerts"
+    }
+  ];
+
+  const handleSocialClick = (platform: string, url: string) => {
+    console.log('Social click tracked:', platform);
+    window.open(url, '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Follow Murphy Finds Everywhere
+          </h1>
+          <p className="text-lg text-muted-foreground mb-8">
+            Stay connected and never miss the latest product finds, reviews, and exclusive deals. 
+            Join our community across all platforms!
+          </p>
+          
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent rounded-full text-accent-foreground text-sm font-medium">
+            🎯 Follow everywhere for the complete experience
+          </div>
+        </div>
+
+        {/* Social Links Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+          {socialLinks.map((social) => {
+            const IconComponent = social.icon;
+            return (
+              <div
+                key={social.name}
+                className="group relative bg-card border border-table-border rounded-lg p-6 hover:shadow-medium transition-all duration-medium cursor-pointer"
+                onClick={() => handleSocialClick(social.name, social.url)}
+              >
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className={`p-3 rounded-lg ${social.color} text-white group-hover:scale-110 transition-transform duration-medium`}>
+                    <IconComponent className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-card-foreground">
+                      {social.name}
+                    </h3>
+                  </div>
+                </div>
+                
+                <p className="text-muted-foreground mb-4">
+                  {social.description}
+                </p>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors duration-medium"
+                >
+                  Follow on {social.name}
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Additional CTA */}
+        <div className="text-center mt-12 p-8 bg-secondary rounded-lg">
+          <h2 className="text-2xl font-semibold text-secondary-foreground mb-4">
+            Don't Miss Out!
+          </h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            Each platform offers unique content - from quick deal alerts on Twitter to detailed unboxings on YouTube. 
+            Follow them all to get the complete Murphy Finds experience.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-3">
+            {socialLinks.slice(0, 3).map((social) => (
+              <Button
+                key={social.name}
+                variant="outline"
+                size="sm"
+                onClick={() => handleSocialClick(social.name, social.url)}
+              >
+                {social.name}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Socials;

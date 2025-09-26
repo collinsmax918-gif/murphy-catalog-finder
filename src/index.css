@@ -1,96 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Murphy Finds Spreadsheet Design System */
 
 @layer base {
   :root {
+    /* Neutral spreadsheet base */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 220 13% 18%;
+    
+    /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 220 13% 18%;
+    
+    /* Popover colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 220 13% 18%;
+    
+    /* Brand teal for CTAs and highlights */
+    --primary: 180 84% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 180 84% 35%;
+    
+    /* Subtle secondary for alternating rows */
+    --secondary: 220 13% 98%;
+    --secondary-foreground: 220 13% 18%;
+    --secondary-hover: 220 13% 96%;
+    
+    /* Muted text and backgrounds */
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    /* Accent for highlights and focus states */
+    --accent: 180 100% 94%;
+    --accent-foreground: 180 84% 25%;
+    
+    /* Table specific colors */
+    --table-header: 220 13% 94%;
+    --table-header-foreground: 220 13% 18%;
+    --table-row-even: 0 0% 100%;
+    --table-row-odd: 220 13% 99%;
+    --table-row-hover: 180 100% 97%;
+    --table-border: 220 13% 91%;
+    
+    /* Status and action colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Form elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --input-focus: 180 84% 40%;
+    --ring: 180 84% 40%;
+    
+    /* Layout elements */
+    --radius: 0.375rem;
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+    /* Animations */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode for spreadsheet theme */
+    --background: 220 13% 9%;
+    --foreground: 220 13% 91%;
+    
+    --card: 220 13% 11%;
+    --card-foreground: 220 13% 91%;
+    
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 13% 91%;
+    
+    --primary: 180 84% 50%;
+    --primary-foreground: 220 13% 9%;
+    --primary-hover: 180 84% 45%;
+    
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 13% 91%;
+    --secondary-hover: 220 13% 18%;
+    
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 64%;
+    
+    --accent: 180 100% 15%;
+    --accent-foreground: 180 84% 75%;
+    
+    --table-header: 220 13% 13%;
+    --table-header-foreground: 220 13% 91%;
+    --table-row-even: 220 13% 9%;
+    --table-row-odd: 220 13% 11%;
+    --table-row-hover: 180 100% 12%;
+    --table-border: 220 13% 20%;
+    
+    --success: 142 76% 45%;
+    --warning: 38 92% 55%;
+    --destructive: 0 84% 65%;
+    
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --input-focus: 180 84% 50%;
+    --ring: 180 84% 50%;
   }
 }
 
@@ -100,6 +119,45 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Spreadsheet-style table enhancements */
+  .table-zebra tr:nth-child(even) {
+    @apply bg-table-row-even;
+  }
+  
+  .table-zebra tr:nth-child(odd) {
+    @apply bg-table-row-odd;
+  }
+  
+  .table-zebra tr:hover {
+    @apply bg-table-row-hover;
+  }
+  
+  /* Line clamp utilities for consistent text truncation */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles for accessibility */
+  .focus-visible\:outline-none:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
   }
 }
