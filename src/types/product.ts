@@ -15,5 +15,6 @@ export interface ProductFilters {
   search: string;
   category: string;
   store: string;
+  brand: string;
   priceRange: [number, number];
 }

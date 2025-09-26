@@ -18,12 +18,14 @@ const ProductTable = ({ products }: ProductTableProps) => {
     search: "",
     category: "",
     store: "",
+    brand: "",
     priceRange: [0, 1000],
   });
 
   // Get unique values for filter dropdowns
   const categories = [...new Set(products.map(p => p.category))];
   const stores = [...new Set(products.map(p => p.store))];
+  const brands = [...new Set(products.map(p => p.tags.find(tag => tag.toLowerCase().includes('brand:'))?.replace('brand:', '') || p.store))].filter(Boolean);
 
   // Filter products based on current filters
   const filteredProducts = products.filter(product => {
@@ -34,9 +36,12 @@ const ProductTable = ({ products }: ProductTableProps) => {
     
     const matchesCategory = filters.category === "" || filters.category === "all" || product.category === filters.category;
     const matchesStore = filters.store === "" || filters.store === "all" || product.store === filters.store;
+    const matchesBrand = filters.brand === "" || filters.brand === "all" || 
+      product.tags.some(tag => tag.toLowerCase().includes('brand:') && tag.replace('brand:', '').toLowerCase().includes(filters.brand.toLowerCase())) ||
+      product.store.toLowerCase().includes(filters.brand.toLowerCase());
     const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
 
-    return matchesSearch && matchesCategory && matchesStore && matchesPrice;
+    return matchesSearch && matchesCategory && matchesStore && matchesBrand && matchesPrice;
   });
 
   const handleProductClick = (product: Product) => {
@@ -84,18 +89,34 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   ))}
                 </SelectContent>
               </Select>
+
+              <Select 
+                value={filters.brand || "all"} 
+                onValueChange={(value) => setFilters(prev => ({ ...prev, brand: value === "all" ? "" : value }))}
+              >
+                <SelectTrigger className="w-full md:w-[170px] h-12 md:h-11 bg-background border-2 border-table-border hover:border-primary/50 rounded-lg transition-all duration-300 hover:shadow-soft text-sm">
+                  <SelectValue placeholder="🔮 All Brands" />
+                </SelectTrigger>
+                <SelectContent className="bg-popover border border-table-border rounded-lg shadow-medium z-50">
+                  <SelectItem value="all">🔮 All Brands</SelectItem>
+                  {brands.map(brand => (
+                    <SelectItem key={brand} value={brand}>🔮 {brand}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Buttons Row */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               {/* Clear Filters */}
-              {(filters.search || filters.category) && (
+              {(filters.search || filters.category || filters.brand) && (
                 <Button
                   variant="outline"
                   onClick={() => setFilters({
                     search: "",
                     category: "",
                     store: "",
+                    brand: "",
                     priceRange: [0, 1000],
                   })}
                   className="h-12 md:h-11 px-4 rounded-lg border-2 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground hover-scale text-sm flex-1 sm:flex-none"
@@ -226,6 +247,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               search: "",
               category: "",
               store: "",
+              brand: "",
               priceRange: [0, 1000],
             })}
           >
