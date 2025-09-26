@@ -72,10 +72,6 @@ const Socials = () => {
               className="mx-auto max-w-full h-auto"
             />
           </div>
-          <p className="text-lg text-muted-foreground mb-2">
-            Stay connected and never miss the latest product finds, reviews, and exclusive deals. 
-            Join our community across all platforms!
-          </p>
           
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent rounded-full text-accent-foreground text-sm font-medium mt-8">
             🎯 Find all my socials to keep up to date
