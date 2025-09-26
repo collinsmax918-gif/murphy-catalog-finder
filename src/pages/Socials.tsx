@@ -62,17 +62,17 @@ const Socials = () => {
 
   return (
     <div className="min-h-screen bg-background" key="socials-refresh">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-2">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-2">
+          <div className="mb-1">
             <img 
               src={followMySocials} 
               alt="Follow My Socials" 
               className="mx-auto max-w-full h-auto"
             />
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-2">
             Stay connected and never miss the latest product finds, reviews, and exclusive deals. 
             Join our community across all platforms!
           </p>
