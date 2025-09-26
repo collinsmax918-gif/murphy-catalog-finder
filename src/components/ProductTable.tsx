@@ -284,7 +284,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
                       fontSize: '12px',
                       fontWeight: '500',
                       lineHeight: '1',
-                      padding: '4px 2px',
+                      padding: '4px 8px',
                       whiteSpace: 'nowrap',
                       flexShrink: 0,
                       minHeight: '20px',
