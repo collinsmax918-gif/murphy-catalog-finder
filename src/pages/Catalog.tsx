@@ -53,10 +53,8 @@ const Catalog = () => {
           <div className="container mx-auto px-4 py-4 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
-                <p className="text-lg md:text-xl text-gray-700 mb-8 animate-slide-up">
-                  Discover authentic Taobao & 1688 products in our <span className="text-gray-800 font-semibold">spreadsheet-style</span> format. 
-                  <br className="hidden md:block"/>
-                  Professional product research made simple. 📊✨
+                <p className="text-base md:text-lg text-gray-700 mb-8 animate-slide-up">
+                  Discover and browse my BEST Finds and Recent Pickups from my videos.
                 </p>
               </div>
               
