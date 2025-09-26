@@ -137,7 +137,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
         {filteredProducts.map((product, index) => (
           <div
             key={product.sku}
-            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group flex flex-col"
             onClick={() => handleProductClick(product)}
             style={{ animationDelay: `${index * 100}ms` }}
           >
@@ -173,14 +173,14 @@ const ProductTable = ({ products }: ProductTableProps) => {
             </div>
 
             {/* Product Details */}
-            <div className="p-4 space-y-3">
+            <div className="p-4 space-y-3 flex flex-col h-full">
               {/* Title */}
               <h3 className="font-semibold text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-200 min-h-[2.5rem]">
                 {product.title}
               </h3>
 
               {/* Category */}
-              <Badge variant="outline" className="text-xs bg-accent/50 hover:bg-accent transition-colors">
+              <Badge variant="outline" className="text-xs bg-accent/50 hover:bg-accent transition-colors w-fit">
                 📂 {product.category}
               </Badge>
 
@@ -192,7 +192,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1 flex-grow">
                 {product.tags.slice(0, 2).map(tag => (
                   <Badge key={tag} variant="outline" className="text-xs bg-secondary/50 hover:bg-secondary transition-colors">
                     🏷️ {tag}
@@ -205,16 +205,18 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 )}
               </div>
 
-              {/* Action Button */}
-              <Button
-                size="sm"
-                onClick={(e) => handleDirectLink(product, e)}
-                disabled={!product.inStock}
-                className="w-full mt-3 gradient-hero hover:opacity-90 disabled:opacity-50 hover-lift"
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />
-                {product.inStock ? "🚀 View Product" : "❌ Unavailable"}
-              </Button>
+              {/* Action Button - Pushed to bottom */}
+              <div className="mt-auto pt-3">
+                <Button
+                  size="sm"
+                  onClick={(e) => handleDirectLink(product, e)}
+                  disabled={!product.inStock}
+                  className="w-full gradient-hero hover:opacity-90 disabled:opacity-50 hover-lift"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  {product.inStock ? "🚀 View Product" : "❌ Unavailable"}
+                </Button>
+              </div>
 
               {/* SKU */}
               <div className="text-xs text-muted-foreground font-mono text-center border-t pt-2 border-border/50">
