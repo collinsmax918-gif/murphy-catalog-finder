@@ -93,15 +93,15 @@ const Socials = () => {
                 onClick={() => handleSocialClick(social.name, social.url)}
               >
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className={`p-3 rounded-lg ${social.color} text-white group-hover:scale-110 transition-transform duration-medium flex items-center justify-center`}>
+                  <div className={`w-16 h-16 rounded-lg ${social.color} text-white group-hover:scale-110 transition-transform duration-medium flex items-center justify-center`}>
                     {social.customIcon ? (
                       <img 
                         src={social.customIcon} 
                         alt={`${social.name} icon`}
-                        className="h-6 w-6 object-contain"
+                        className="w-full h-full object-contain rounded-lg"
                       />
                     ) : (
-                      <IconComponent className="h-6 w-6" />
+                      <IconComponent className="h-8 w-8" />
                     )}
                   </div>
                   <div>
