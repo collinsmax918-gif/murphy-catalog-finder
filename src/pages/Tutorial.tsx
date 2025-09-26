@@ -14,14 +14,14 @@ const Tutorial = () => {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="text-center max-w-3xl mx-auto">
-          <div className="mb-4">
+          <div className="-mb-8 -mt-6">
             <img 
               src={howToOrderTitle} 
               alt="How to Order" 
               className="mx-auto max-w-full h-auto"
             />
           </div>
-          <p className="text-lg text-muted-foreground mb-12">
+          <p className="text-lg text-muted-foreground mb-2">
             Your Complete Step By Step Guide On How To Order From iTaoBuy 🔮
           </p>
           
