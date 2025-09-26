@@ -19,7 +19,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
     category: "",
     store: "",
     priceRange: [0, 1000],
-    inStock: false,
   });
 
   // Get unique values for filter dropdowns
@@ -36,9 +35,8 @@ const ProductTable = ({ products }: ProductTableProps) => {
     const matchesCategory = filters.category === "" || filters.category === "all" || product.category === filters.category;
     const matchesStore = filters.store === "" || filters.store === "all" || product.store === filters.store;
     const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
-    const matchesStock = !filters.inStock || product.inStock;
 
-    return matchesSearch && matchesCategory && matchesStore && matchesPrice && matchesStock;
+    return matchesSearch && matchesCategory && matchesStore && matchesPrice;
   });
 
   const handleProductClick = (product: Product) => {
@@ -90,17 +88,8 @@ const ProductTable = ({ products }: ProductTableProps) => {
 
             {/* Buttons Row */}
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <Button
-                variant={filters.inStock ? "default" : "outline"}
-                onClick={() => setFilters(prev => ({ ...prev, inStock: !prev.inStock }))}
-                className="h-12 md:h-11 px-6 rounded-lg hover-scale text-sm flex-1 sm:flex-none"
-              >
-                <Filter className="mr-2 h-4 w-4" />
-                ✅ In Stock Only
-              </Button>
-
               {/* Clear Filters */}
-              {(filters.search || filters.category || filters.inStock) && (
+              {(filters.search || filters.category) && (
                 <Button
                   variant="outline"
                   onClick={() => setFilters({
@@ -108,7 +97,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
                     category: "",
                     store: "",
                     priceRange: [0, 1000],
-                    inStock: false,
                   })}
                   className="h-12 md:h-11 px-4 rounded-lg border-2 border-destructive/20 text-destructive hover:bg-destructive hover:text-destructive-foreground hover-scale text-sm flex-1 sm:flex-none"
                 >
@@ -239,7 +227,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
               category: "",
               store: "",
               priceRange: [0, 1000],
-              inStock: false,
             })}
           >
             Clear All Filters

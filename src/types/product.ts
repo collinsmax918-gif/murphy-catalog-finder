@@ -16,5 +16,4 @@ export interface ProductFilters {
   category: string;
   store: string;
   priceRange: [number, number];
-  inStock: boolean;
 }
