@@ -12,7 +12,7 @@ const Socials = () => {
       icon: null, // Will use custom image
       customIcon: tiktokIcon,
       url: "https://tiktok.com/@murphyr3ps",
-      color: "bg-black hover:bg-gray-800",
+      color: "bg-transparent", // Transparent background for TikTok
       description: "@murphyr3ps\nStreetwear, Finds, Life"
     },
     {
@@ -21,7 +21,7 @@ const Socials = () => {
       icon: null, // Will use custom image
       customIcon: tiktokIcon,
       url: "https://tiktok.com/@murphyfinds",
-      color: "bg-gray-900 hover:bg-gray-700",
+      color: "bg-transparent", // Transparent background for TikTok
       description: "@murphyfinds\nAll Finds, Rotations"
     },
     {
@@ -30,7 +30,7 @@ const Socials = () => {
       icon: null, // Will use custom image
       customIcon: tiktokIcon,
       url: "https://tiktok.com/@oldmoneymurphy", 
-      color: "bg-zinc-800 hover:bg-zinc-600",
+      color: "bg-transparent", // Transparent background for TikTok
       description: "@oldmoneymurphy\nOld Money, Grisch, Accessories"
     },
     {
@@ -99,6 +99,10 @@ const Socials = () => {
                         src={social.customIcon} 
                         alt={`${social.name} icon`}
                         className="w-full h-full object-contain rounded-lg"
+                        style={{
+                          filter: 'invert(1) brightness(0) saturate(100%) invert(1)',
+                          mixBlendMode: 'multiply'
+                        }}
                       />
                     ) : (
                       <IconComponent className="h-8 w-8" />
