@@ -54,7 +54,7 @@ const Catalog = () => {
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
                 <p className="text-base md:text-lg text-gray-700 mb-8 animate-slide-up">
-                  Discover and browse my BEST Finds and Recent Pickups from my videos.
+                  Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
                 </p>
               </div>
               
