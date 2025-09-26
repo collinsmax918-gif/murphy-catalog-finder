@@ -1,7 +1,7 @@
 import { MessageCircle, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import followMySocials from "@/assets/follow-my-socials.png";
-import tiktokIcon from "@/assets/tiktok-icon.webp";
+import tiktokIcon from "@/assets/tiktok-logo-clean.svg";
 
 // Force refresh - timestamp: 1727395080000
 const Socials = () => {
@@ -99,10 +99,6 @@ const Socials = () => {
                         src={social.customIcon} 
                         alt={`${social.name} icon`}
                         className="w-full h-full object-contain rounded-lg"
-                        style={{
-                          filter: 'invert(1) brightness(0) saturate(100%) invert(1)',
-                          mixBlendMode: 'multiply'
-                        }}
                       />
                     ) : (
                       <IconComponent className="h-8 w-8" />
