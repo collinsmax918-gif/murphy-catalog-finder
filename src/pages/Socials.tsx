@@ -65,7 +65,7 @@ const Socials = () => {
       <div className="container mx-auto px-4 py-0">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="mb-0">
+          <div className="-mb-4 -mt-4">
             <img 
               src={followMySocials} 
               alt="Follow My Socials" 
