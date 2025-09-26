@@ -233,8 +233,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   minHeight: '20px',
                   boxSizing: 'border-box',
                   backgroundColor: 'hsl(var(--accent))',
-                  color: 'hsl(var(--accent-foreground))',
-                  width: 'fit-content'
+                  color: 'hsl(var(--accent-foreground))'
                 }}
               >
                 📂 {product.category}
