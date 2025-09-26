@@ -117,30 +117,6 @@ const Socials = () => {
             );
           })}
         </div>
-
-        {/* Additional CTA */}
-        <div className="text-center mt-12 p-8 bg-secondary rounded-lg">
-          <h2 className="text-2xl font-semibold text-secondary-foreground mb-4">
-            Don't Miss Out!
-          </h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Each platform offers unique content - from TikTok finds to detailed unboxings on YouTube. 
-            Follow them all to get the complete Murphy Finds experience.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-3">
-            {socialLinks.slice(0, 3).map((social) => (
-              <Button
-                key={social.id}
-                variant="outline"
-                size="sm"
-                onClick={() => handleSocialClick(social.name, social.url)}
-              >
-                {social.name}
-              </Button>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
