@@ -117,56 +117,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                 ${product.price.toFixed(2)}
               </div>
 
-              {/* Stock Status */}
-              <div className="flex items-center gap-2">
-                <span 
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '9999px',
-                    border: '1px solid transparent',
-                     fontSize: '12px',
-                     fontWeight: '500',
-                     lineHeight: '1',
-                     padding: '0px 6px',
-                     whiteSpace: 'nowrap',
-                     flexShrink: 0,
-                    boxSizing: 'border-box',
-                    backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
-                    color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
-                  }}
-                >
-                  {product.inStock ? "In Stock" : "Out of Stock"}
-                </span>
-              </div>
-
-               {/* Tags */}
-               <div className="flex flex-wrap gap-2">
-                 {product.tags.map((tag) => (
-                   <span 
-                     key={tag}
-                     style={{
-                       display: 'inline-flex',
-                       alignItems: 'center',
-                       justifyContent: 'center',
-                       borderRadius: '9999px',
-                       border: '1px solid transparent',
-                        fontSize: '12px',
-                        fontWeight: '500',
-                        lineHeight: '1',
-                        padding: '0px 6px',
-                        whiteSpace: 'nowrap',
-                        flexShrink: 0,
-                       boxSizing: 'border-box',
-                       backgroundColor: 'hsl(var(--secondary))',
-                       color: 'hsl(var(--secondary-foreground))'
-                     }}
-                   >
-                     🏷️ {tag}
-                   </span>
-                 ))}
-               </div>
 
               {/* Description */}
               <div>
@@ -180,10 +130,9 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
               <Button 
                 onClick={handleProductClick}
                 className="w-full h-12 text-base font-semibold"
-                disabled={!product.inStock}
               >
                 <ExternalLink className="mr-2 h-4 w-4" />
-                {product.inStock ? "View on Taobao/1688" : "Out of Stock"}
+                View on Taobao/1688
               </Button>
 
               {/* Share Buttons */}
@@ -225,10 +174,9 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
           <Button 
             onClick={handleProductClick}
             className="w-full h-12 text-base font-semibold"
-            disabled={!product.inStock}
           >
             <ExternalLink className="mr-2 h-4 w-4" />
-            {product.inStock ? "View on Taobao/1688" : "Out of Stock"}
+            View on Taobao/1688
           </Button>
         </div>
       </div>

@@ -24,19 +24,17 @@ const ProductTable = ({ products }: ProductTableProps) => {
   // Get unique values for filter dropdowns
   const categories = [...new Set(products.map(p => p.category))];
   const stores = [...new Set(products.map(p => p.store))];
-  const brands = [...new Set(products.map(p => p.tags.find(tag => tag.toLowerCase().includes('brand:'))?.replace('brand:', '') || p.store))].filter(Boolean);
+  const brands = [...new Set(products.map(p => p.store))].filter(Boolean);
 
   // Filter products based on current filters
   const filteredProducts = products.filter(product => {
     const matchesSearch = filters.search === "" || 
       product.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-      product.store.toLowerCase().includes(filters.search.toLowerCase()) ||
-      product.tags.some(tag => tag.toLowerCase().includes(filters.search.toLowerCase()));
+      product.store.toLowerCase().includes(filters.search.toLowerCase());
     
     const matchesCategory = filters.category === "" || filters.category === "all" || product.category === filters.category;
     const matchesStore = filters.store === "" || filters.store === "all" || product.store === filters.store;
     const matchesBrand = filters.brand === "" || filters.brand === "all" || 
-      product.tags.some(tag => tag.toLowerCase().includes('brand:') && tag.replace('brand:', '').toLowerCase().includes(filters.brand.toLowerCase())) ||
       product.store.toLowerCase().includes(filters.brand.toLowerCase());
     const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
 
@@ -63,7 +61,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-primary animate-pulse-soft" />
             <Input
-              placeholder="🔍 Search products, stores, or tags..."
+              placeholder="🔍 Search products or stores..."
               className="pl-12 h-12 md:h-14 text-sm md:text-base bg-gradient-to-r from-background to-secondary border-2 border-primary/20 focus:border-primary/50 rounded-xl shadow-soft hover:shadow-medium transition-all duration-300"
               value={filters.search}
               onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
@@ -158,30 +156,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              {/* Stock Badge */}
-              <div className="absolute top-2 right-2">
-                <span 
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '9999px',
-                    border: '1px solid transparent',
-                     fontSize: '12px',
-                     fontWeight: '500',
-                     lineHeight: '1',
-                     padding: '0px 6px',
-                     whiteSpace: 'nowrap',
-                     flexShrink: 0,
-                    boxSizing: 'border-box',
-                    backgroundColor: product.inStock ? 'hsl(var(--primary))' : 'hsl(var(--secondary))',
-                    color: product.inStock ? 'hsl(var(--primary-foreground))' : 'hsl(var(--secondary-foreground))'
-                  }}
-                >
-                  {product.inStock ? "✅ In Stock" : "❌ Out of Stock"}
-                </span>
-              </div>
-
               {/* Store Badge */}
               <div className="absolute top-2 left-2">
                 <span 
@@ -243,65 +217,16 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 </div>
               </div>
 
-               {/* Tags */}
-               <div className="flex flex-wrap gap-1 flex-grow">
-                 {[product.store, ...product.tags].slice(0, 2).map(tag => (
-                  <span 
-                    key={tag} 
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: '9999px',
-                      border: '1px solid transparent',
-                       fontSize: '12px',
-                       fontWeight: '500',
-                       lineHeight: '1',
-                       padding: '0px 6px',
-                       whiteSpace: 'nowrap',
-                       flexShrink: 0,
-                      boxSizing: 'border-box',
-                      backgroundColor: 'hsl(var(--secondary))',
-                      color: 'hsl(var(--secondary-foreground))'
-                    }}
-                  >
-                    🏷️ {tag}
-                  </span>
-                ))}
-                {product.tags.length > 2 && (
-                  <span 
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: '9999px',
-                      border: '1px solid transparent',
-                       fontSize: '12px',
-                       fontWeight: '500',
-                       lineHeight: '1',
-                       padding: '0px 6px',
-                       whiteSpace: 'nowrap',
-                       flexShrink: 0,
-                      boxSizing: 'border-box',
-                      backgroundColor: 'hsl(var(--muted))',
-                      color: 'hsl(var(--muted-foreground))'
-                    }}
-                  >
-                    +{product.tags.length - 2}
-                  </span>
-                )}
-              </div>
 
               {/* Action Button - Pushed to bottom */}
               <div className="mt-auto pt-3">
                 <Button
                   size="sm"
                   onClick={(e) => handleDirectLink(product, e)}
-                  disabled={!product.inStock}
-                  className="w-full gradient-hero hover:opacity-90 disabled:opacity-50 hover-lift"
+                  className="w-full gradient-hero hover:opacity-90 hover-lift"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
-                  {product.inStock ? "🚀 View Product" : "❌ Unavailable"}
+                  🚀 View Product
                 </Button>
               </div>
 
