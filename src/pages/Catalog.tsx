@@ -40,7 +40,7 @@ const Catalog = () => {
         </div>
         
         {/* Murphy Finds Title Image - Larger */}
-        <div className="flex justify-center pb-2">
+        <div className="flex justify-center pb-0 md:pb-2">
           <img 
             src={murphyFindsTitle}
             alt="Murphy Finds Huge Spreadsheet"
@@ -50,7 +50,7 @@ const Catalog = () => {
         
         {/* Content overlay */}
         <div className="">
-          <div className="container mx-auto px-4 py-4 relative">
+          <div className="container mx-auto px-4 py-2 md:py-4 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
                 <p className="text-sm md:text-lg text-gray-700 mb-2 md:mb-8 animate-slide-up">
