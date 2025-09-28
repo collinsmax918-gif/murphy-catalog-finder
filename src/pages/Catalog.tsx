@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
-import { mockProducts } from "@/data/mockProducts";
+import { products } from "@/data/allProducts";
 import { useToast } from "@/hooks/use-toast";
 import murphyBanner from "@/assets/murphy-banner.png";
 import murphyFindsTitle from "@/assets/murphy-finds-title.png";
@@ -119,7 +119,7 @@ const Catalog = () => {
 
       {/* Product Table */}
       <div className="container mx-auto px-4 py-8">
-        <ProductTable products={mockProducts} />
+        <ProductTable products={products} />
       </div>
 
       {/* Exit Intent Simulation (shows after 10 seconds) */}
