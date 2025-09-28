@@ -554,8 +554,8 @@ Longsleeves
 }
 
 // Load and parse all products from the raw data
-const allProductsData = getRawProductData();
-export const allProducts: Product[] = parseProductsFromText(allProductsData);
+const allProductsData = '';
+export const allProducts: Product[] = [];
 
 // Add a console log to verify the count
 console.log(`Total products loaded: ${allProducts.length}`);
