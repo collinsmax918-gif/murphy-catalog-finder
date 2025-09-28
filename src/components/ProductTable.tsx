@@ -143,7 +143,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
         {filteredProducts.map((product, index) => (
           <div
             key={product.sku}
-            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group flex flex-col"
+            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group flex flex-col h-full"
             onClick={() => handleProductClick(product)}
             style={{ animationDelay: `${index * 100}ms` }}
           >
@@ -152,7 +152,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               <img
                 src={product.image_url}
                 alt={product.title}
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
@@ -182,9 +182,9 @@ const ProductTable = ({ products }: ProductTableProps) => {
             </div>
 
             {/* Product Details */}
-            <div className="p-4 space-y-3 flex flex-col h-full">
+            <div className="p-3 space-y-2 flex flex-col h-full">
               {/* Title */}
-              <h3 className="font-semibold text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-200 min-h-[2.5rem]">
+              <h3 className="font-semibold text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-200">
                 {product.title}
               </h3>
 
@@ -193,46 +193,39 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
+                  justifyContent: 'flex-start',
                   borderRadius: '9999px',
                   border: '1px solid transparent',
-                  fontSize: '12px',
+                  fontSize: '11px',
                   fontWeight: '500',
                   lineHeight: '1',
-                  padding: '0px 6px',
+                  padding: '2px 8px',
                   whiteSpace: 'nowrap',
                   flexShrink: 0,
                   boxSizing: 'border-box',
                   backgroundColor: 'hsl(var(--accent))',
-                  color: 'hsl(var(--accent-foreground))'
+                  color: 'hsl(var(--accent-foreground))',
+                  width: 'fit-content'
                 }}
               >
                 📂 {product.category}
               </span>
 
               {/* Price */}
-              <div className="flex items-center justify-between">
-                <div className="text-xl font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  ${product.price.toFixed(2)}
-                </div>
+              <div className="text-lg font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                ${product.price.toFixed(2)}
               </div>
 
-
               {/* Action Button - Pushed to bottom */}
-              <div className="mt-auto pt-3">
+              <div className="mt-auto pt-2">
                 <Button
                   size="sm"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="w-full gradient-hero hover:opacity-90 hover-lift"
+                  className="w-full gradient-hero hover:opacity-90 hover-lift text-xs h-8"
                 >
-                  <ExternalLink className="mr-2 h-4 w-4" />
+                  <ExternalLink className="mr-1 h-3 w-3" />
                   🚀 View Product
                 </Button>
-              </div>
-
-              {/* SKU */}
-              <div className="text-xs text-muted-foreground font-mono text-center border-t pt-2 border-border/50">
-                SKU: {product.sku}
               </div>
             </div>
           </div>
