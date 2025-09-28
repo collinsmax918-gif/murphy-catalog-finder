@@ -162,19 +162,30 @@ function generatePrice(title: string, category: string): number {
 }
 
 function generatePlaceholderImage(title: string, category: string): string {
-  // Use placeholder service with product-specific images
-  const categoryMap: { [key: string]: string } = {
-    'Shoes': 'sneakers',
-    'Clothing': 'fashion',
-    'Accessories': 'jewelry',
-    'Bags': 'bags',
-    'Fashion': 'fashion'
-  };
+  // Generate better placeholder images based on product type
+  const cleanTitle = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
   
-  const imageCategory = categoryMap[category] || 'fashion';
-  const seed = title.replace(/\s+/g, '-').toLowerCase();
+  // Use a mix of different placeholder services for better variety
+  const services = [
+    `https://picsum.photos/seed/${cleanTitle}/400/400`,
+    `https://loremflickr.com/400/400/${category.toLowerCase()}?random=${Math.abs(hashCode(title))}`,
+    `https://source.unsplash.com/400x400/?${category.toLowerCase()}&sig=${Math.abs(hashCode(title))}`
+  ];
   
-  return `https://picsum.photos/seed/${seed}/400/400?category=${imageCategory}`;
+  // Use hash of title to consistently pick the same service for the same product
+  const serviceIndex = Math.abs(hashCode(title)) % services.length;
+  return services[serviceIndex];
+}
+
+// Simple hash function for consistent image selection
+function hashCode(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return hash;
 }
 
 function generateTags(title: string, store: string): string[] {
