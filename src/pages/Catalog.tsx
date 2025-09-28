@@ -53,7 +53,7 @@ const Catalog = () => {
           <div className="container mx-auto px-4 py-2 md:py-4 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
-                <p className="text-sm md:text-lg text-gray-700 mb-2 md:mb-8 animate-slide-up">
+                <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8 animate-slide-up">
                   Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
                 </p>
               </div>
