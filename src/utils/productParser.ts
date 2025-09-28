@@ -2,21 +2,42 @@ import { Product } from "@/types/product";
 
 // Parse the raw product data from the uploaded file
 export function parseProductsFromText(text: string): Product[] {
-  const lines = text.split('\n').filter(line => line.trim() !== '');
+  // First, let's normalize the text by handling multi-line entries
+  const normalizedText = normalizeMultiLineEntries(text);
+  const lines = normalizedText.split('\n').filter(line => line.trim() !== '');
   const products: Product[] = [];
   
-  let currentEntry = '';
+  console.log(`Starting to parse ${lines.length} lines after normalization`);
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     
     if (line.startsWith('[[NO_IMAGE]]') || line.startsWith('"[[NO_IMAGE]]')) {
-      // If we have a current entry, process it
+      const product = parseProductLine(line, products.length + 1);
+      if (product) {
+        products.push(product);
+      }
+    }
+  }
+  
+  console.log(`Successfully parsed ${products.length} products from ${lines.length} lines`);
+  return products;
+}
+
+// Normalize multi-line entries into single lines
+function normalizeMultiLineEntries(text: string): string {
+  const lines = text.split('\n');
+  const normalizedLines: string[] = [];
+  let currentEntry = '';
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // If this line starts a new entry
+    if (line.startsWith('[[NO_IMAGE]]') || line.startsWith('"[[NO_IMAGE]]')) {
+      // Save the previous entry if it exists
       if (currentEntry) {
-        const product = parseProductLine(currentEntry, products.length + 1);
-        if (product) {
-          products.push(product);
-        }
+        normalizedLines.push(currentEntry);
       }
       // Start new entry
       currentEntry = line;
@@ -26,15 +47,12 @@ export function parseProductsFromText(text: string): Product[] {
     }
   }
   
-  // Process the last entry
+  // Don't forget the last entry
   if (currentEntry) {
-    const product = parseProductLine(currentEntry, products.length + 1);
-    if (product) {
-      products.push(product);
-    }
+    normalizedLines.push(currentEntry);
   }
   
-  return products;
+  return normalizedLines.join('\n');
 }
 
 function parseProductLine(line: String, index: number): Product | null {
@@ -46,7 +64,7 @@ function parseProductLine(line: String, index: number): Product | null {
   const match = line.match(regex);
   
   if (!match) {
-    console.warn('Could not parse line:', line);
+    console.warn('Could not parse line:', line.substring(0, 100) + '...');
     return null;
   }
   
@@ -59,7 +77,13 @@ function parseProductLine(line: String, index: number): Product | null {
   
   // Skip invalid entries
   if (cleanStore === '[NO_LINK]' || cleanStore === 'SOON') {
+    console.log('Skipping product with invalid store:', cleanStore);
     return null;
+  }
+  
+  // Log successful parsing for debugging
+  if (index <= 10 || index % 100 === 0) {
+    console.log(`Parsed product ${index}:`, cleanTitle, cleanStore);
   }
   
   // Generate category based on product name
