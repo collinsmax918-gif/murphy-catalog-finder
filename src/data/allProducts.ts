@@ -553,9 +553,141 @@ Longsleeves
 (Has NFC Tags)) {[NO_LINK]} -uncategorized-"`;
 }
 
-// Load and parse all products from the raw data
-const allProductsData = '';
-export const allProducts: Product[] = [];
+// Import product images
+import nikeAirMaxCdg951 from '@/assets/products/nike-air-max-cdg-95-1.jpg';
+import nikeAirMaxCdg952 from '@/assets/products/nike-air-max-cdg-95-2.jpg';
+import nikeAirMaxCdg953 from '@/assets/products/nike-air-max-cdg-95-3.jpg';
+import nikeAirMax95Beetroot from '@/assets/products/nike-air-max-95-beetroot.jpg';
+import nikeAirMaxHoneyBlack from '@/assets/products/nike-air-max-honey-black-corteiz.jpg';
+import nikeAirMax95Neon from '@/assets/products/nike-air-max-95-neon.jpg';
+import nikeAirMax95Anthracite from '@/assets/products/nike-air-max-95-anthracite.jpg';
+import nikeAirMax95PinkFoam from '@/assets/products/nike-air-max-95-pink-foam.jpg';
+import nikeAirMax95SolarRed from '@/assets/products/nike-air-max-95-solar-red.jpg';
+import nikeAirMax95SynaWorld from '@/assets/products/nike-air-max-95-syna-world.jpg';
+
+// Define products with real images
+export const allProducts: Product[] = [
+  {
+    sku: 'NIKE-CDG-95-001',
+    title: 'Nike Air Max x CDG Air Max 95',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMaxCdg951,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'CDG', 'Sneakers'],
+    description: 'Nike Air Max x CDG Air Max 95',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-CDG-95-002',
+    title: 'Nike Air Max x CDG Air Max 95',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMaxCdg952,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'CDG', 'Sneakers'],
+    description: 'Nike Air Max x CDG Air Max 95',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-CDG-95-003',
+    title: 'Nike Air Max x CDG Air Max 95',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 41.72,
+    image_url: nikeAirMaxCdg953,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520655387&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'CDG', 'Sneakers'],
+    description: 'Nike Air Max x CDG Air Max 95',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-BEETROOT',
+    title: 'Nike Air Max 95 Beetroot',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 38.82,
+    image_url: nikeAirMax95Beetroot,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520649485&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Beetroot', 'Sneakers'],
+    description: 'Nike Air Max 95 Beetroot',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-HONEY-BLACK',
+    title: 'Nike Air Max Honey Black (Corteiz)',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 31.58,
+    image_url: nikeAirMaxHoneyBlack,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7522523350&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Corteiz', 'Honey Black', 'Sneakers'],
+    description: 'Nike Air Max Honey Black (Corteiz)',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-NEON',
+    title: 'Nike Air Max 95 Neon',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMax95Neon,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Neon', 'Sneakers'],
+    description: 'Nike Air Max 95 Neon',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-ANTHRACITE',
+    title: 'Nike Air Max 95 Anthracite',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMax95Anthracite,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Anthracite', 'Sneakers'],
+    description: 'Nike Air Max 95 Anthracite',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-PINK-FOAM',
+    title: 'Nike Air Max 95 Pink Foam',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMax95PinkFoam,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Pink Foam', 'Sneakers'],
+    description: 'Nike Air Max 95 Pink Foam',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-SOLAR-RED',
+    title: 'Nike Air Max 95 Solar Red',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMax95SolarRed,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Solar Red', 'Sneakers'],
+    description: 'Nike Air Max 95 Solar Red',
+    inStock: true
+  },
+  {
+    sku: 'NIKE-95-SYNA-WORLD',
+    title: 'Nike Air Max 95 Syna World',
+    store: 'ITaoBuy',
+    category: 'Sneakers',
+    price: 46.35,
+    image_url: nikeAirMax95SynaWorld,
+    product_url: 'https://www.itaobuy.com/product-detail?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D7520643127&spider_token=4572&inviteCode=CAYM5AJG',
+    tags: ['Nike', 'Air Max', 'Syna World', 'Sneakers'],
+    description: 'Nike Air Max 95 Syna World',
+    inStock: true
+  }
+];
 
 // Add a console log to verify the count
 console.log(`Total products loaded: ${allProducts.length}`);
