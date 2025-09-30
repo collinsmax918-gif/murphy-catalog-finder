@@ -147,17 +147,12 @@ const ProductTable = ({ products }: ProductTableProps) => {
             style={{ animationDelay: `${index * 50}ms` }}
           >
             {/* Product Image */}
-            <div className="relative bg-white p-6 aspect-square flex items-center justify-center overflow-hidden">
+            <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-4 aspect-square flex items-center justify-center overflow-hidden">
               <img
                 src={product.image_url}
                 alt={product.title}
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
-                style={{ 
-                  imageRendering: '-webkit-optimize-contrast',
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)',
-                }}
               />
               
               {/* Store Badge */}
