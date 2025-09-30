@@ -139,92 +139,67 @@ const ProductTable = ({ products }: ProductTableProps) => {
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 animate-fade-in">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
         {filteredProducts.map((product, index) => (
           <div
             key={product.sku}
-            className="bg-gradient-to-br from-card via-card/95 to-secondary/30 border-2 border-primary/20 rounded-xl overflow-hidden cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 group flex flex-col h-full"
-            onClick={() => handleProductClick(product)}
-            style={{ animationDelay: `${index * 100}ms` }}
+            className="bg-card border border-border rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col"
+            style={{ animationDelay: `${index * 50}ms` }}
           >
             {/* Product Image */}
-            <div className="relative overflow-hidden bg-secondary/20">
+            <div className="relative bg-white p-6 aspect-square flex items-center justify-center overflow-hidden">
               <img
                 src={product.image_url}
                 alt={product.title}
-                className="w-full h-72 object-contain group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Store Badge */}
-              <div className="absolute top-2 left-2">
-                <span 
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '9999px',
-                    border: '1px solid transparent',
-                     fontSize: '12px',
-                     fontWeight: '500',
-                     lineHeight: '1',
-                     padding: '0px 6px',
-                     whiteSpace: 'nowrap',
-                     flexShrink: 0,
-                    boxSizing: 'border-box',
-                    backgroundColor: 'hsl(var(--primary))',
-                    color: 'hsl(var(--primary-foreground))'
-                  }}
-                >
+              <div className="absolute top-3 left-3">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground shadow-sm">
                   🏪 {product.store}
                 </span>
               </div>
             </div>
 
             {/* Product Details */}
-            <div className="p-3 space-y-2 flex flex-col h-full">
+            <div className="p-4 space-y-3 flex flex-col flex-1 bg-card">
               {/* Title */}
-              <h3 className="font-semibold text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-200">
+              <h3 
+                className="font-semibold text-base line-clamp-2 text-foreground min-h-[3rem] cursor-pointer hover:text-primary transition-colors"
+                onClick={() => handleProductClick(product)}
+              >
                 {product.title}
               </h3>
 
               {/* Category */}
-              <span 
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  borderRadius: '9999px',
-                  border: '1px solid transparent',
-                  fontSize: '11px',
-                  fontWeight: '500',
-                  lineHeight: '1',
-                  padding: '2px 8px',
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                  boxSizing: 'border-box',
-                  backgroundColor: 'hsl(var(--accent))',
-                  color: 'hsl(var(--accent-foreground))',
-                  width: 'fit-content'
-                }}
-              >
+              <span className="inline-flex items-center w-fit px-2.5 py-1 rounded-full text-xs font-medium bg-accent text-accent-foreground">
                 📂 {product.category}
               </span>
 
               {/* Price */}
-              <div className="text-lg font-bold bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <div className="text-2xl font-bold text-primary">
                 ${product.price.toFixed(2)}
               </div>
 
-              {/* Action Button - Pushed to bottom */}
-              <div className="mt-auto pt-2">
+              {/* Action Buttons */}
+              <div className="flex gap-2 mt-auto pt-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => handleProductClick(product)}
+                  className="flex-1 h-9 text-sm font-medium"
+                >
+                  View Details
+                </Button>
                 <Button
                   size="sm"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="w-full gradient-hero hover:opacity-90 hover-lift text-xs h-8"
+                  className="flex-1 h-9 text-sm font-medium bg-primary hover:bg-primary/90"
                 >
-                  <ExternalLink className="mr-1 h-3 w-3" />
-                  🚀 View Product
+                  <ExternalLink className="mr-1.5 h-4 w-4" />
+                  Buy
                 </Button>
               </div>
             </div>
