@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut, LogIn, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 import murphyFindsLogo from "@/assets/murphy-finds-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, isAdmin, signOut } = useAuth();
 
   const navItems = [
     { href: "/", label: "Spreadsheet" },
@@ -50,6 +52,36 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Admin Link */}
+              {isAdmin && (
+                <Link
+                  to="/admin"
+                  className={`font-medium transition-colors duration-fast flex items-center gap-2 ${
+                    isActive("/admin")
+                      ? "text-primary border-b-2 border-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <Shield className="h-4 w-4" />
+                  Admin
+                </Link>
+              )}
+              
+              {/* Auth Button */}
+              {user ? (
+                <Button onClick={signOut} variant="outline" size="sm">
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              ) : (
+                <Link to="/auth">
+                  <Button variant="outline" size="sm">
+                    <LogIn className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -66,7 +98,7 @@ const Navigation = () => {
           {/* Mobile Navigation */}
           {isOpen && (
             <div className="md:hidden border-t border-table-border bg-background">
-              <div className="py-4 space-y-4">
+              <div className="py-4 space-y-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
@@ -81,6 +113,39 @@ const Navigation = () => {
                     {item.label}
                   </Link>
                 ))}
+                
+                {/* Admin Link - Mobile */}
+                {isAdmin && (
+                  <Link
+                    to="/admin"
+                    className={`flex items-center gap-2 px-4 py-2 font-medium transition-colors duration-fast ${
+                      isActive("/admin")
+                        ? "text-primary bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Shield className="h-4 w-4" />
+                    Admin
+                  </Link>
+                )}
+                
+                {/* Auth Button - Mobile */}
+                <div className="px-4 pt-2">
+                  {user ? (
+                    <Button onClick={() => { signOut(); setIsOpen(false); }} variant="outline" size="sm" className="w-full">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Button>
+                  ) : (
+                    <Link to="/auth" onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" size="sm" className="w-full">
+                        <LogIn className="h-4 w-4 mr-2" />
+                        Login
+                      </Button>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           )}
