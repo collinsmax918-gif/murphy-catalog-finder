@@ -153,6 +153,11 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 alt={product.title}
                 className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 loading="lazy"
+                style={{ 
+                  imageRendering: '-webkit-optimize-contrast',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)',
+                }}
               />
               
               {/* Store Badge */}
