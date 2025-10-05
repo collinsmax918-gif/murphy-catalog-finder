@@ -1,60 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
+import { products } from "@/data/allProducts";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
-import { Product } from "@/types/product";
 import murphyBanner from "@/assets/murphy-banner.png";
 import murphyFindsTitle from "@/assets/murphy-finds-title.png";
 
 const Catalog = () => {
   const [email, setEmail] = useState("");
   const [showEmailSignup, setShowEmailSignup] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
   const { toast } = useToast();
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('products')
-          .select('*')
-          .order('created_at', { ascending: false });
-
-        if (error) throw error;
-
-        // Transform database products to match Product type
-        const transformedProducts: Product[] = (data || []).map(product => ({
-          sku: product.sku,
-          title: product.title,
-          store: product.store,
-          category: product.category,
-          price: Number(product.price),
-          image_url: product.image_url,
-          product_url: product.product_url,
-          tags: product.tags || [],
-          description: product.description || '',
-          inStock: product.in_stock ?? true
-        }));
-
-        setProducts(transformedProducts);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-        toast({
-          title: "Error loading products",
-          description: "Please try refreshing the page.",
-          variant: "destructive"
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, [toast]);
 
   const handleEmailSignup = (e: React.FormEvent) => {
     e.preventDefault();
@@ -162,13 +119,7 @@ const Catalog = () => {
 
       {/* Product Table */}
       <div className="container mx-auto px-4 py-8">
-        {loading ? (
-          <div className="text-center py-12">
-            <div className="animate-pulse">Loading products...</div>
-          </div>
-        ) : (
-          <ProductTable products={products} />
-        )}
+        <ProductTable products={products} />
       </div>
 
       {/* Exit Intent Simulation (shows after 10 seconds) */}
