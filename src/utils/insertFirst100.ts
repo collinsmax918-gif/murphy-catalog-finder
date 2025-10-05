@@ -31,7 +31,7 @@ const extractCategory = (title: string): string => {
 };
 
 export const insertFirst100 = async () => {
-  // Delete existing
+  // Delete existing products
   await supabase.from('products').delete().neq('id', '00000000-0000-0000-0000-000000000000');
   
   const lines = murphyData.split('\n').filter(line => line.trim()).slice(0, 100);
@@ -40,6 +40,9 @@ export const insertFirst100 = async () => {
   for (let i = 0; i < lines.length; i++) {
     const parsed = parseProductLine(lines[i]);
     if (!parsed) continue;
+    
+    // Skip all Balenciaga products
+    if (parsed.title.toLowerCase().includes('balenciaga')) continue;
     
     products.push({
       sku: `${parsed.title.toUpperCase().replace(/[^A-Z0-9]/g, '-').substring(0, 30)}-${String(i + 1).padStart(4, '0')}`,
