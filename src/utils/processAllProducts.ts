@@ -1,5 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
-import murphyData from '@/data/murphy_items_bulk.txt?raw';
+import murphyData from '@/data/murphy_items_all.txt?raw';
 
 const parseProductLine = (line: string) => {
   const regex = /\(([^)]+)\)\[([^\]]+)\]\{([^}]+)\}-\$([0-9.]+)-/;
@@ -63,8 +63,20 @@ const generateSKU = (title: string, index: number): string => {
 };
 
 export const processAllMurphyProducts = async () => {
-  const lines = murphyData.split('\n').filter(line => line.trim());
-  console.log(`Starting to process ${lines.length} product lines...`);
+  // First, delete all existing products
+  const { error: deleteError } = await supabase
+    .from('products')
+    .delete()
+    .neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
+  
+  if (deleteError) {
+    console.error('Error deleting existing products:', deleteError);
+  } else {
+    console.log('Cleared existing products');
+  }
+  
+  const lines = murphyData.split('\n').filter(line => line.trim()).slice(0, 100);
+  console.log(`Starting to process first 100 product lines...`);
   
   const products = [];
   let skipped = 0;
