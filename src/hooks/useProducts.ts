@@ -10,7 +10,7 @@ export function useProducts() {
   useEffect(() => {
     async function loadMurphyProducts() {
       try {
-        const response = await fetch('/src/data/murphy_items_final.txt');
+        const response = await fetch('/murphy_items_final.txt');
         if (response.ok) {
           const text = await response.text();
           const murphyProducts = parseMurphyProducts(text);
