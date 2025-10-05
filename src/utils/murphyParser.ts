@@ -22,6 +22,12 @@ export function parseMurphyProducts(text: string): Product[] {
     if (match) {
       const [, title, imageUrl, productUrl, priceStr] = match;
       const normalizedTitle = title.trim();
+      const cleanImageUrl = imageUrl.trim();
+      
+      // Skip products without valid image URLs
+      if (!cleanImageUrl || cleanImageUrl === '') {
+        continue;
+      }
       
       // Skip duplicates - keep only the first occurrence of each title
       if (seenTitles.has(normalizedTitle)) {
@@ -37,7 +43,7 @@ export function parseMurphyProducts(text: string): Product[] {
         store: 'ITaoBuy',
         category: detectCategory(normalizedTitle),
         price: price,
-        image_url: imageUrl.trim(),
+        image_url: cleanImageUrl,
         product_url: productUrl.trim(),
         tags: generateTags(normalizedTitle),
         description: generateDescription(normalizedTitle),
