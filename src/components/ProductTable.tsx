@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Product, ProductFilters } from "@/types/product";
 import ProductModal from "./ProductModal";
+import ProductImage from "./ProductImage";
 
 interface ProductTableProps {
   products: Product[];
@@ -148,11 +149,10 @@ const ProductTable = ({ products }: ProductTableProps) => {
           >
             {/* Product Image */}
             <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 p-4 aspect-square flex items-center justify-center overflow-hidden">
-              <img
+              <ProductImage
                 src={product.image_url}
                 alt={product.title}
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
               />
               
               {/* Store Badge */}

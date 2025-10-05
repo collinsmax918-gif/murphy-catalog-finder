@@ -24,6 +24,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import ProductImage from "@/components/ProductImage";
 
 interface Product {
   id: string;
@@ -236,7 +237,7 @@ export default function Admin() {
               {products.map((product) => (
                 <TableRow key={product.id}>
                   <TableCell>
-                    <img
+                    <ProductImage
                       src={product.image_url}
                       alt={product.title}
                       className="w-12 h-12 object-contain rounded"

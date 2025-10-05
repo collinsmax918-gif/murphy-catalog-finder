@@ -3,6 +3,7 @@ import { X, ExternalLink, Share2, Copy, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Product } from "@/types/product";
 import { useToast } from "@/hooks/use-toast";
+import ProductImage from "./ProductImage";
 
 interface ProductModalProps {
   product: Product | null;
@@ -86,7 +87,7 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                 {!imageLoaded && (
                   <div className="absolute inset-0 bg-muted animate-pulse" />
                 )}
-                <img
+                <ProductImage
                   src={product.image_url}
                   alt={product.title}
                   className="w-full h-full object-cover"
