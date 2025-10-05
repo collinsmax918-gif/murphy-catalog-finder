@@ -1,5 +1,4 @@
 import { Product } from "@/types/product";
-import { parseMurphyProducts } from "@/utils/murphyParser";
 
 // Import shoe images
 import nikeAirMaxCDG951 from "@/assets/products/nike-air-max-cdg-95-1.jpg";
@@ -13,22 +12,8 @@ import nikeAirMax95PinkFoam from "@/assets/products/nike-air-max-95-pink-foam.jp
 import nikeAirMax95SolarRed from "@/assets/products/nike-air-max-95-solar-red.jpg";
 import nikeAirMax95SynaWorld from "@/assets/products/nike-air-max-95-syna-world.jpg";
 
-// Load Murphy's products from file
-async function loadMurphyProducts(): Promise<Product[]> {
-  try {
-    const response = await fetch('/src/data/murphy_items_final.txt');
-    if (response.ok) {
-      const text = await response.text();
-      return parseMurphyProducts(text);
-    }
-  } catch (error) {
-    console.error('Failed to load Murphy products:', error);
-  }
-  return [];
-}
-
 // Original 10 shoes with local images
-const originalShoes: Product[] = [
+export const originalShoes: Product[] = [
   {
     sku: "NIKE-CDG-95-1",
     title: "Nike Air Max x CDG Air Max 95",
@@ -150,9 +135,3 @@ const originalShoes: Product[] = [
     inStock: true
   }
 ];
-
-// Combine original shoes with Murphy's products
-const murphyProducts = await loadMurphyProducts();
-export const products: Product[] = [...originalShoes, ...murphyProducts];
-
-console.log(`Loaded ${products.length} total products (${originalShoes.length} original + ${murphyProducts.length} from Murphy's file)`);

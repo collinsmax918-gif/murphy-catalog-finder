@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
-import { products } from "@/data/allProducts";
+import { useProducts } from "@/hooks/useProducts";
 import { useToast } from "@/hooks/use-toast";
 import murphyBanner from "@/assets/murphy-banner.png";
 import murphyFindsTitle from "@/assets/murphy-finds-title.png";
@@ -11,6 +11,7 @@ import murphyFindsTitle from "@/assets/murphy-finds-title.png";
 const Catalog = () => {
   const [email, setEmail] = useState("");
   const [showEmailSignup, setShowEmailSignup] = useState(false);
+  const { products, loading } = useProducts();
   const { toast } = useToast();
 
   const handleEmailSignup = (e: React.FormEvent) => {
@@ -119,7 +120,14 @@ const Catalog = () => {
 
       {/* Product Table */}
       <div className="container mx-auto px-4 py-8">
-        <ProductTable products={products} />
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading products...</p>
+          </div>
+        ) : (
+          <ProductTable products={products} />
+        )}
       </div>
 
       {/* Exit Intent Simulation (shows after 10 seconds) */}
