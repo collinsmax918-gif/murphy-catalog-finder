@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { processAllMurphyProducts } from '@/utils/processAllProducts';
+import { insertFirst100 } from '@/utils/insertFirst100';
 
 const ProcessProducts = () => {
   const [processing, setProcessing] = useState(false);
@@ -15,7 +15,7 @@ const ProcessProducts = () => {
     setResults(null);
 
     try {
-      const result = await processAllMurphyProducts();
+      const result = await insertFirst100();
       setResults(result);
       
       if (result.errors === 0) {
