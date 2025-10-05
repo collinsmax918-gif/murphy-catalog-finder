@@ -18,12 +18,12 @@ const ProcessProducts = () => {
       const result = await insertFirst100();
       setResults(result);
       
-      if (result.errors === 0) {
+      if (!result.error) {
         toast.success(`Successfully added ${result.inserted} products!`);
         setProgress('✅ All products uploaded successfully!');
       } else {
-        toast.warning(`Uploaded ${result.inserted} products with ${result.errors} errors`);
-        setProgress(`⚠️ Completed with some errors`);
+        toast.error(`Error uploading products: ${result.error.message}`);
+        setProgress(`❌ Failed to upload products`);
       }
     } catch (error) {
       console.error('Fatal error:', error);
@@ -57,15 +57,11 @@ const ProcessProducts = () => {
             </div>
           )}
 
-          {results && (
+          {results && !results.error && (
             <div className="space-y-2 p-4 bg-green-50 border border-green-200 rounded-lg">
               <p className="font-semibold text-green-900">Results:</p>
               <ul className="text-sm text-green-800 space-y-1">
-                <li>• Total lines: {results.total}</li>
-                <li>• Parsed: {results.parsed}</li>
-                <li>• Successfully inserted: {results.inserted}</li>
-                <li>• Skipped: {results.skipped}</li>
-                <li>• Errors: {results.errors}</li>
+                <li>• Successfully inserted: {results.inserted} products</li>
               </ul>
             </div>
           )}
