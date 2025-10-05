@@ -1,12 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
-import { createClient } from '@supabase/supabase-js';
 import murphyData from '@/data/murphy_items_all.txt?raw';
-
-// Create admin client for bulk operations
-const supabaseAdmin = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY
-);
 
 const parseProductLine = (line: string) => {
   const regex = /\(([^)]+)\)\[([^\]]+)\]\{([^}]+)\}-\$([0-9.]+)-/;
@@ -38,9 +31,6 @@ const extractCategory = (title: string): string => {
 };
 
 export const insertFirst100 = async () => {
-  // Delete existing products using admin client to bypass RLS
-  await supabaseAdmin.from('products').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-  
   const lines = murphyData.split('\n').filter(line => line.trim()).slice(0, 100);
   const products = [];
   
@@ -65,6 +55,14 @@ export const insertFirst100 = async () => {
     });
   }
   
-  const { data, error } = await supabaseAdmin.from('products').insert(products).select();
-  return { inserted: data?.length || 0, error };
+  // Call edge function to insert with admin privileges
+  const { data, error } = await supabase.functions.invoke('bulk-insert-products', {
+    body: { products }
+  });
+
+  if (error) {
+    return { inserted: 0, error };
+  }
+
+  return { inserted: data.inserted || 0, error: null };
 };
