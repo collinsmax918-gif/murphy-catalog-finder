@@ -7,6 +7,7 @@ import { Product } from "@/types/product";
 export function parseMurphyProducts(text: string): Product[] {
   const lines = text.split('\n').filter(line => line.trim());
   const products: Product[] = [];
+  const seenTitles = new Set<string>();
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -20,18 +21,26 @@ export function parseMurphyProducts(text: string): Product[] {
     
     if (match) {
       const [, title, imageUrl, productUrl, priceStr] = match;
+      const normalizedTitle = title.trim();
+      
+      // Skip duplicates - keep only the first occurrence of each title
+      if (seenTitles.has(normalizedTitle)) {
+        continue;
+      }
+      
+      seenTitles.add(normalizedTitle);
       const price = parseFloat(priceStr);
       
       const product: Product = {
         sku: `MURPHY-${(i + 1).toString().padStart(4, '0')}`,
-        title: title.trim(),
+        title: normalizedTitle,
         store: 'ITaoBuy',
-        category: detectCategory(title),
+        category: detectCategory(normalizedTitle),
         price: price,
         image_url: imageUrl.trim(),
         product_url: productUrl.trim(),
-        tags: generateTags(title),
-        description: generateDescription(title),
+        tags: generateTags(normalizedTitle),
+        description: generateDescription(normalizedTitle),
         inStock: true
       };
       
