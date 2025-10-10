@@ -1,18 +1,61 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
-import { useProducts } from "@/hooks/useProducts";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { Product } from "@/types/product";
 import murphyBanner from "@/assets/murphy-banner.png";
 import murphyFindsTitle from "@/assets/murphy-finds-title.png";
 
 const Catalog = () => {
   const [email, setEmail] = useState("");
   const [showEmailSignup, setShowEmailSignup] = useState(false);
-  const { products, loading } = useProducts();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        
+        if (data) {
+          // Map database fields to Product type
+          const mappedProducts: Product[] = data.map(item => ({
+            sku: item.sku,
+            title: item.title,
+            store: item.store,
+            category: item.category,
+            price: item.price,
+            image_url: item.image_url,
+            product_url: item.product_url,
+            tags: item.tags || [],
+            description: item.description || '',
+            inStock: item.in_stock ?? true,
+          }));
+          setProducts(mappedProducts);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        toast({
+          title: "Error loading products",
+          description: "Failed to load products. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [toast]);
 
   const handleEmailSignup = (e: React.FormEvent) => {
     e.preventDefault();
