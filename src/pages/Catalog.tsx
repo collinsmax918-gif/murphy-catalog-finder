@@ -3,11 +3,11 @@ import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
+import ToolsSection from "@/components/ToolsSection";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Product } from "@/types/product";
 import murphyBanner from "@/assets/murphy-banner.png";
-import murphyFindsTitle from "@/assets/murphy-finds-title.png";
 
 const Catalog = () => {
   const [email, setEmail] = useState("");
@@ -172,6 +172,9 @@ const Catalog = () => {
         ) : (
           <ProductTable products={products} />
         )}
+        
+        {/* Tools Section */}
+        <ToolsSection />
       </div>
 
       {/* Exit Intent Simulation (shows after 10 seconds) */}
