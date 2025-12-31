@@ -73,13 +73,13 @@ const Catalog = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Header with Murphy Banner */}
-      <div className="relative border-b border-table-border bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
+      <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
         {/* Murphy Banner Image - Larger */}
-        <div className="flex justify-center pt-12 pb-2">
+        <div className="flex justify-center pt-12 pb-2 animate-fade-in">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
-            className="h-24 md:h-48 object-contain"
+            className="h-24 md:h-48 object-contain hover:scale-105 transition-transform duration-500"
           />
         </div>
         
@@ -88,28 +88,30 @@ const Catalog = () => {
         <div className="">
           <div className="container mx-auto px-4 py-2 md:py-4 relative">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="animate-fade-in">
-                <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8 animate-slide-up">
+              <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
+                <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8">
                   Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
                 </p>
               </div>
               
               {/* CTA Buttons */}
-              <div className="animate-scale-in flex flex-col sm:flex-row justify-center gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                 <Button
                   variant="outline"
                   onClick={() => setShowEmailSignup(true)}
-                  className="h-12 px-8 text-base bg-white/90 border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 rounded-xl font-medium shadow-soft"
+                  className="h-12 px-8 text-base bg-white/90 border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 rounded-xl font-medium shadow-soft hover:scale-105 hover:shadow-lg transition-all duration-300 animate-fade-in group"
+                  style={{ animationDelay: "300ms" }}
                 >
-                  <Mail className="mr-2 h-5 w-5" />
+                  <Mail className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                   Join Community
                 </Button>
                 <Button
                   onClick={() => document.getElementById('product-table')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="h-12 px-8 text-base gradient-hero hover:opacity-90 rounded-xl font-medium shadow-medium hover-lift"
+                  className="h-12 px-8 text-base gradient-hero hover:opacity-90 rounded-xl font-medium shadow-medium hover:scale-105 hover:shadow-xl transition-all duration-300 animate-fade-in group"
+                  style={{ animationDelay: "400ms" }}
                 >
                   Browse Finds
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </Button>
               </div>
               
@@ -126,14 +128,14 @@ const Catalog = () => {
                       className="h-12 text-base border-2 border-primary/30 focus:border-primary"
                     />
                     <div className="flex gap-2">
-                      <Button type="submit" className="flex-1 h-12 gradient-hero">
+                      <Button type="submit" className="flex-1 h-12 gradient-hero hover:scale-[1.02] transition-transform duration-300">
                         Subscribe 🚀
                       </Button>
                       <Button 
                         type="button" 
                         variant="outline" 
                         onClick={() => setShowEmailSignup(false)}
-                        className="px-4 border-2"
+                        className="px-4 border-2 hover:scale-105 transition-transform duration-300"
                       >
                         ❌
                       </Button>
@@ -143,16 +145,16 @@ const Catalog = () => {
               )}
               
               {/* Quick Stats */}
-              <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in pb-12 md:pb-20" style={{ animationDelay: "0.3s" }}>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
+              <div className="flex justify-center gap-6 md:gap-8 text-center pb-12 md:pb-20">
+                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "500ms" }}>
                   <div className="text-xl md:text-2xl font-bold text-gray-800">3000+</div>
                   <div className="text-xs md:text-sm text-gray-600">Products</div>
                 </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
+                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "600ms" }}>
                   <div className="text-xl md:text-2xl font-bold text-gray-800">500+</div>
                   <div className="text-xs md:text-sm text-gray-600">Verified Sellers</div>
                 </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
+                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "700ms" }}>
                   <div className="text-xl md:text-2xl font-bold text-gray-800">24/7</div>
                   <div className="text-xs md:text-sm text-gray-600">Updates</div>
                 </div>
