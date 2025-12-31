@@ -28,34 +28,34 @@ const Navbar = () => {
 
       {/* Main Navbar */}
       <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 gap-4">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between h-14 gap-8">
             {/* Logo */}
-            <Link to="/" className="flex flex-shrink-0 items-center gap-2" aria-label="Murphy Finds home">
+            <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Murphy Finds home">
               <img
                 src={murphyFindsLogo}
                 alt="Murphy Finds logo"
-                className="h-10 w-auto object-contain"
+                className="h-8 w-auto object-contain"
                 loading="eager"
               />
             </Link>
 
             {/* Search Bar */}
-            <div className="hidden md:flex relative max-w-xs flex-1">
+            <div className="hidden md:flex relative w-48">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search..."
-                className="pl-10 h-10 bg-secondary/50 border-border rounded-xl"
+                className="pl-10 h-9 bg-secondary border-transparent rounded-full text-sm"
               />
             </div>
 
             {/* Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200"
+                  className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   <item.icon className="h-4 w-4" />
                   {item.label}
@@ -64,14 +64,14 @@ const Navbar = () => {
             </nav>
 
             {/* Right Icons */}
-            <div className="flex items-center gap-2">
-              <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200">
+            <div className="flex items-center gap-4">
+              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
                 <Heart className="h-5 w-5" />
               </button>
-              <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200">
+              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
                 <Settings className="h-5 w-5" />
               </button>
-              <button className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-200">
+              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
                 <ShoppingCart className="h-5 w-5" />
               </button>
             </div>
