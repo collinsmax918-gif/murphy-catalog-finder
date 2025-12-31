@@ -21,8 +21,13 @@ const Navigation = () => {
   return (
     <>
       {/* Announcement Bar */}
-      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 text-white text-center py-2 text-sm font-medium">
-        📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 text-white py-2 text-sm font-medium overflow-hidden">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+        </div>
       </div>
       
       <nav className="sticky top-0 z-50 border-b border-table-border bg-white/95 backdrop-blur-sm">
