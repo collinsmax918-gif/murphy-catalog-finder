@@ -73,9 +73,9 @@ const Catalog = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Header with Murphy Banner */}
-      <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
+      <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-200 via-pink-100 to-background overflow-hidden min-h-[70vh] flex flex-col justify-center">
         {/* Murphy Banner Image - Larger */}
-        <div className="flex justify-center pt-12 pb-2">
+        <div className="flex justify-center pt-16 md:pt-24 pb-8">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
@@ -83,19 +83,18 @@ const Catalog = () => {
           />
         </div>
         
-        
         {/* Content overlay */}
-        <div className="">
-          <div className="container mx-auto px-4 py-2 md:py-4 relative">
+        <div className="flex-1 flex items-start">
+          <div className="container mx-auto px-4 py-4 md:py-8 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-                <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8">
+                <p className="text-base md:text-xl text-gray-700 mb-10 md:mb-12">
                   Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
                 </p>
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
                 <Button
                   variant="outline"
                   onClick={() => setShowEmailSignup(true)}
@@ -115,9 +114,18 @@ const Catalog = () => {
                 </Button>
               </div>
               
+              {/* Tutorial Link */}
+              <a 
+                href="/tutorial" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm md:text-base animate-fade-in"
+                style={{ animationDelay: "500ms" }}
+              >
+                See the KakoBuy ordering tutorial
+              </a>
+              
               {/* Email Signup Modal */}
               {showEmailSignup && (
-                <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium animate-scale-in">
+                <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mt-8 shadow-medium animate-scale-in">
                   <form onSubmit={handleEmailSignup} className="space-y-4">
                     <Input
                       type="email"
