@@ -28,7 +28,7 @@ const Navbar = () => {
       {/* Main Navbar */}
       <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-14 gap-8">
+          <div className="flex items-center h-14 gap-4">
             {/* Logo */}
             <Link to="/" className="flex flex-shrink-0 items-center" aria-label="Murphy Finds home">
               <img
@@ -40,13 +40,16 @@ const Navbar = () => {
             </Link>
 
             {/* Search Bar */}
-            <div className="hidden md:flex relative w-48">
+            <div className="hidden md:flex relative w-56">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search..."
-                className="pl-10 h-9 bg-secondary border-transparent rounded-full text-sm"
+                className="pl-10 h-9 bg-secondary border-transparent rounded-lg text-sm"
               />
             </div>
+
+            {/* Spacer */}
+            <div className="flex-1" />
 
             {/* Navigation Links */}
             <nav className="hidden lg:flex items-center gap-6">
