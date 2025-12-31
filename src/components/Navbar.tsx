@@ -17,12 +17,16 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
-            <img 
-              src={murphyFindsLogo} 
-              alt="Murphy Finds" 
-              className="h-8 object-contain"
+          <Link to="/" className="flex flex-shrink-0 items-center gap-2" aria-label="Murphy Finds home">
+            <img
+              src={murphyFindsLogo}
+              alt="Murphy Finds logo"
+              className="h-10 w-auto object-contain"
+              loading="eager"
             />
+            <span className="hidden sm:inline text-sm font-semibold text-foreground">
+              Murphy Finds
+            </span>
           </Link>
 
           {/* Search Bar */}
