@@ -15,7 +15,7 @@ const ToolsSection = () => {
               Register on Kakobuy and claim coupons worth 410 dollars.
             </p>
             <Button 
-              className="gradient-hero text-white hover:opacity-90"
+              className="gradient-hero text-white hover:opacity-90 rounded-xl"
             >
               Check
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -31,7 +31,7 @@ const ToolsSection = () => {
             <p className="text-muted-foreground">
               See how to order on Kakobuy.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
               Watch now
             </Button>
           </div>
@@ -48,7 +48,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Track your parcel status with ease.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
               Track package
             </Button>
           </div>
@@ -62,7 +62,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Convert links from multiple platforms.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
               Convert now
             </Button>
           </div>
@@ -76,7 +76,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Check product price, QC, and more.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
               Search now
             </Button>
           </div>
