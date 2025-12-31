@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Mail } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductTable from "@/components/ProductTable";
@@ -102,44 +102,52 @@ const Catalog = () => {
                 </p>
               </div>
               
-              {/* Email Signup - Compact Design */}
-              <div className="animate-scale-in">
-                {!showEmailSignup ? (
-                  <Button
-                    onClick={() => setShowEmailSignup(true)}
-                    className="mb-8 h-10 md:h-12 px-4 md:px-8 text-sm md:text-base gradient-hero hover-lift rounded-xl shadow-medium"
-                  >
-                    <Mail className="mr-3 h-5 w-5" />
-                    📊 Get Spreadsheet Updates
-                  </Button>
-                ) : (
-                  <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium">
-                    <form onSubmit={handleEmailSignup} className="space-y-4">
-                      <Input
-                        type="email"
-                        placeholder="✉️ Enter your email for updates"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="h-12 text-base border-2 border-primary/30 focus:border-primary"
-                      />
-                      <div className="flex gap-2">
-                        <Button type="submit" className="flex-1 h-12 gradient-hero">
-                          Subscribe 🚀
-                        </Button>
-                        <Button 
-                          type="button" 
-                          variant="outline" 
-                          onClick={() => setShowEmailSignup(false)}
-                          className="px-4 border-2"
-                        >
-                          ❌
-                        </Button>
-                      </div>
-                    </form>
-                  </div>
-                )}
+              {/* CTA Buttons */}
+              <div className="animate-scale-in flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <Button
+                  variant="outline"
+                  onClick={() => setShowEmailSignup(true)}
+                  className="h-12 px-8 text-base bg-white border-2 border-gray-300 text-gray-800 hover:bg-gray-100 rounded-full font-medium"
+                >
+                  Join Community
+                </Button>
+                <Button
+                  onClick={() => document.getElementById('product-table')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="h-12 px-8 text-base bg-gray-900 text-white hover:bg-gray-800 rounded-full font-medium"
+                >
+                  Browse Finds
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
+              
+              {/* Email Signup Modal */}
+              {showEmailSignup && (
+                <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium animate-scale-in">
+                  <form onSubmit={handleEmailSignup} className="space-y-4">
+                    <Input
+                      type="email"
+                      placeholder="✉️ Enter your email for updates"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="h-12 text-base border-2 border-primary/30 focus:border-primary"
+                    />
+                    <div className="flex gap-2">
+                      <Button type="submit" className="flex-1 h-12 gradient-hero">
+                        Subscribe 🚀
+                      </Button>
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        onClick={() => setShowEmailSignup(false)}
+                        className="px-4 border-2"
+                      >
+                        ❌
+                      </Button>
+                    </div>
+                  </form>
+                </div>
+              )}
               
               {/* Quick Stats */}
               <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
@@ -162,7 +170,7 @@ const Catalog = () => {
       </div>
 
       {/* Product Table */}
-      <div className="container mx-auto px-4 py-8">
+      <div id="product-table" className="container mx-auto px-4 py-8">
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
