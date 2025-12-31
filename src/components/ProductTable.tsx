@@ -37,11 +37,11 @@ const ProductTable = ({ products }: ProductTableProps) => {
         {products.slice(0, 3).map((product, index) => (
           <div
             key={product.sku}
-            className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 group flex flex-col"
+            className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all duration-300 group flex flex-col"
             style={{ animationDelay: `${index * 50}ms` }}
           >
             {/* Product Image */}
-            <div className="relative bg-zinc-950 aspect-[4/3] flex items-center justify-center overflow-hidden p-6">
+            <div className="relative bg-secondary aspect-[4/3] flex items-center justify-center overflow-hidden p-6">
               <ProductImage
                 src={product.image_url}
                 alt={product.title}
@@ -49,36 +49,36 @@ const ProductTable = ({ products }: ProductTableProps) => {
               />
               
               {/* Heart Button */}
-              <button className="absolute top-4 right-4 w-10 h-10 bg-zinc-800 hover:bg-zinc-700 rounded-full flex items-center justify-center transition-colors">
-                <Heart className="w-5 h-5 text-zinc-400" />
+              <button className="absolute top-4 right-4 w-10 h-10 bg-card/80 hover:bg-primary/20 border border-border rounded-full flex items-center justify-center transition-colors">
+                <Heart className="w-5 h-5 text-muted-foreground hover:text-primary" />
               </button>
             </div>
 
             {/* Product Details */}
-            <div className="p-5 space-y-3 flex flex-col flex-1">
+            <div className="p-5 space-y-3 flex flex-col flex-1 bg-card">
               {/* Title + Price Row */}
               <div className="flex items-start justify-between gap-3">
                 <h3 
-                  className="font-semibold text-base text-white line-clamp-2 cursor-pointer hover:text-zinc-300 transition-colors flex-1"
+                  className="font-semibold text-base text-foreground line-clamp-2 cursor-pointer hover:text-primary transition-colors flex-1"
                   onClick={() => handleProductClick(product)}
                 >
                   {product.title}
                 </h3>
-                <span className="text-xl font-bold text-white whitespace-nowrap">
+                <span className="text-xl font-bold text-primary whitespace-nowrap">
                   ${product.price.toFixed(2)}
                 </span>
               </div>
 
               {/* Category + Batch */}
-              <div className="flex items-center gap-2 text-sm text-zinc-400">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span>{product.category}</span>
                 <span>•</span>
                 <span>Best batch</span>
               </div>
 
               {/* Quality Badge */}
-              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                <Heart className="w-3 h-3 fill-emerald-400" />
+              <div className="inline-flex items-center gap-1.5 w-fit px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
+                <Heart className="w-3 h-3 fill-primary" />
                 Quality: 10/10
               </div>
 
@@ -87,26 +87,26 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 <Button
                   size="sm"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="flex-1 h-10 text-sm font-medium bg-zinc-800 hover:bg-zinc-700 text-white border-0"
+                  className="flex-1 h-10 text-sm font-medium gradient-hero text-white border-0 hover:opacity-90"
                 >
-                  <ExternalLink className="mr-2 h-4 w-4 text-emerald-400" />
+                  <ExternalLink className="mr-2 h-4 w-4" />
                   Order product
                 </Button>
                 <Button
                   size="icon"
                   variant="outline"
                   onClick={() => handleProductClick(product)}
-                  className="h-10 w-10 bg-transparent border-zinc-700 hover:bg-zinc-800 hover:border-zinc-600"
+                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30"
                 >
-                  <Eye className="h-4 w-4 text-zinc-400" />
+                  <Eye className="h-4 w-4 text-muted-foreground" />
                 </Button>
                 <Button
                   size="icon"
                   variant="outline"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="h-10 w-10 bg-transparent border-zinc-700 hover:bg-zinc-800 hover:border-zinc-600"
+                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30"
                 >
-                  <ShoppingCart className="h-4 w-4 text-zinc-400" />
+                  <ShoppingCart className="h-4 w-4 text-muted-foreground" />
                 </Button>
               </div>
             </div>
