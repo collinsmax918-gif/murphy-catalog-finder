@@ -24,9 +24,11 @@ const Navigation = () => {
       <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 text-white py-2 text-sm font-medium overflow-hidden">
         <div className="animate-marquee whitespace-nowrap">
           <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">👥 JOIN OUR COMMUNITY WITH 10K+ MEMBERS 🔥</span>
+          <span className="mx-8">📋 OVER 5K ITEMS ON SPREADSHEET 💎</span>
           <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
-          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
-          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">👥 JOIN OUR COMMUNITY WITH 10K+ MEMBERS 🔥</span>
+          <span className="mx-8">📋 OVER 5K ITEMS ON SPREADSHEET 💎</span>
         </div>
       </div>
       
