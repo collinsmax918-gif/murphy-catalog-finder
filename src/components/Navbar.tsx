@@ -1,4 +1,4 @@
-import { Search, Grid3X3, SearchIcon, CheckCircle, Users, Settings2, Heart, Settings, ShoppingCart } from "lucide-react";
+import { Search, Grid3X3, CheckCircle, Users, Settings2, Heart, Settings, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import murphyFindsLogo from "@/assets/murphy-finds-logo.png";
@@ -6,7 +6,6 @@ import murphyFindsLogo from "@/assets/murphy-finds-logo.png";
 const Navbar = () => {
   const navItems = [
     { label: "Spreadsheet", icon: Grid3X3, href: "/" },
-    { label: "Browse finds", icon: SearchIcon, href: "/" },
     { label: "Quality checks", icon: CheckCircle, href: "/" },
     { label: "Sellers", icon: Users, href: "/" },
     { label: "Tools", icon: Settings2, href: "/" },
