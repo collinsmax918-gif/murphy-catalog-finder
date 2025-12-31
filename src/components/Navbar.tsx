@@ -15,7 +15,14 @@ const Navbar = () => {
     <>
       {/* Animated Announcement Bar */}
       <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-700 text-white py-2 text-sm font-medium overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap">
+        <div className="flex animate-marquee whitespace-nowrap">
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">👥 JOIN OUR COMMUNITY WITH 10K+ MEMBERS 🔥</span>
+          <span className="mx-8">📋 OVER 5K ITEMS ON SPREADSHEET 💎</span>
+          <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
+          <span className="mx-8">👥 JOIN OUR COMMUNITY WITH 10K+ MEMBERS 🔥</span>
+          <span className="mx-8">📋 OVER 5K ITEMS ON SPREADSHEET 💎</span>
+          {/* Duplicate for seamless loop */}
           <span className="mx-8">📈 HUNDREDS OF NEW FINDS EVERY WEEK 📊</span>
           <span className="mx-8">👥 JOIN OUR COMMUNITY WITH 10K+ MEMBERS 🔥</span>
           <span className="mx-8">📋 OVER 5K ITEMS ON SPREADSHEET 💎</span>
@@ -67,13 +74,13 @@ const Navbar = () => {
 
             {/* Right Icons */}
             <div className="flex items-center gap-4">
-              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+              <button className="text-muted-foreground hover:text-red-500 hover:scale-125 transition-all duration-300">
                 <Heart className="h-5 w-5" />
               </button>
-              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+              <button className="text-muted-foreground hover:text-foreground hover:rotate-90 transition-all duration-300">
                 <Settings className="h-5 w-5" />
               </button>
-              <button className="text-muted-foreground hover:text-foreground transition-colors duration-200">
+              <button className="text-muted-foreground hover:text-foreground hover:scale-110 hover:-translate-y-0.5 transition-all duration-300">
                 <ShoppingCart className="h-5 w-5" />
               </button>
             </div>
