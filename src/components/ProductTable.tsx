@@ -87,7 +87,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
                 <Button
                   size="sm"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="flex-1 h-10 text-sm font-medium gradient-hero text-white border-0 hover:opacity-90"
+                  className="flex-1 h-10 text-sm font-medium gradient-hero text-white border-0 hover:opacity-90 rounded-xl"
                 >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Order product
@@ -96,7 +96,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   size="icon"
                   variant="outline"
                   onClick={() => handleProductClick(product)}
-                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30"
+                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30 rounded-xl"
                 >
                   <Eye className="h-4 w-4 text-muted-foreground" />
                 </Button>
@@ -104,7 +104,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
                   size="icon"
                   variant="outline"
                   onClick={(e) => handleDirectLink(product, e)}
-                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30"
+                  className="h-10 w-10 bg-transparent border-border hover:bg-secondary hover:border-primary/30 rounded-xl"
                 >
                   <ShoppingCart className="h-4 w-4 text-muted-foreground" />
                 </Button>
