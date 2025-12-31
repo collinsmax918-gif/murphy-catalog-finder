@@ -77,7 +77,7 @@ const Catalog = () => {
       <Navbar />
       
       {/* Hero Header with Murphy Banner */}
-      <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-200 via-pink-100 to-background overflow-hidden min-h-[70vh] flex flex-col justify-center">
+      <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-200 via-pink-100 to-background overflow-hidden min-h-[50vh] flex flex-col justify-center">
         {/* Murphy Banner Image - Larger */}
         <div className="flex justify-center pt-16 md:pt-24 pb-8">
           <img 
