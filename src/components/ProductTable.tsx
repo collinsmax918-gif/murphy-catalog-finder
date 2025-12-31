@@ -34,7 +34,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
-        {products.map((product, index) => (
+        {products.slice(0, 3).map((product, index) => (
           <div
             key={product.sku}
             className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-700 transition-all duration-300 group flex flex-col"
