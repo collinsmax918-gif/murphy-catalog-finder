@@ -34,7 +34,7 @@ const Navbar = () => {
               <img
                 src={murphyFindsLogo}
                 alt="Murphy Finds logo"
-                className="h-8 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 loading="eager"
               />
             </Link>
