@@ -1,7 +1,7 @@
 import { Search, Grid3X3, SearchIcon, CheckCircle, Users, Settings2, Heart, Settings, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import murphyLogo from "@/assets/murphy-logo.jpg";
+import murphyFindsLogo from "@/assets/murphy-finds-logo.png";
 
 const Navbar = () => {
   const navItems = [
@@ -19,9 +19,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img 
-              src={murphyLogo} 
+              src={murphyFindsLogo} 
               alt="Murphy Finds" 
-              className="h-10 w-10 rounded-lg object-cover"
+              className="h-8 object-contain"
             />
           </Link>
 
