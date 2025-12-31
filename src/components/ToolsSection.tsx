@@ -7,31 +7,31 @@ const ToolsSection = () => {
       {/* Top Row - Two Large Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Main Promo Card */}
-        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden">
-          <Lock className="absolute top-6 right-6 w-6 h-6 text-muted-foreground" />
+        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden hover:shadow-xl hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 group animate-fade-in">
+          <Lock className="absolute top-6 right-6 w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-primary">KakoBuy</h3>
+            <h3 className="text-2xl font-bold text-primary group-hover:scale-105 transition-transform duration-300 origin-left">KakoBuy</h3>
             <p className="text-muted-foreground">
               Register on Kakobuy and claim coupons worth 410 dollars.
             </p>
             <Button 
-              className="gradient-hero text-white hover:opacity-90 rounded-xl"
+              className="gradient-hero text-white hover:opacity-90 rounded-xl hover:scale-105 transition-transform duration-300"
             >
               Check
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
         </div>
 
         {/* Guide Card */}
-        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden">
-          <FileText className="absolute top-6 right-6 w-6 h-6 text-muted-foreground" />
+        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden hover:shadow-xl hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 group animate-fade-in" style={{ animationDelay: "100ms" }}>
+          <FileText className="absolute top-6 right-6 w-6 h-6 text-muted-foreground group-hover:text-primary group-hover:rotate-6 transition-all duration-300" />
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-foreground">Guide</h3>
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">Guide</h3>
             <p className="text-muted-foreground">
               See how to order on Kakobuy.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl hover:scale-[1.02] transition-transform duration-300">
               Watch now
             </Button>
           </div>
@@ -41,42 +41,42 @@ const ToolsSection = () => {
       {/* Bottom Row - Three Small Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Tracking Card */}
-        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
-          <Package className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden hover:shadow-xl hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 group animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <Package className="absolute top-6 right-6 w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:animate-bounce transition-colors duration-300" />
           <div className="space-y-3">
-            <h3 className="text-lg font-bold text-foreground">Tracking</h3>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">Tracking</h3>
             <p className="text-sm text-muted-foreground">
               Track your parcel status with ease.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl hover:scale-[1.02] transition-transform duration-300">
               Track package
             </Button>
           </div>
         </div>
 
         {/* Link Converter Card */}
-        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
-          <Link className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden hover:shadow-xl hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 group animate-fade-in" style={{ animationDelay: "300ms" }}>
+          <Link className="absolute top-6 right-6 w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:rotate-45 transition-all duration-300" />
           <div className="space-y-3">
-            <h3 className="text-lg font-bold text-foreground">Link converter</h3>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">Link converter</h3>
             <p className="text-sm text-muted-foreground">
               Convert links from multiple platforms.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl hover:scale-[1.02] transition-transform duration-300">
               Convert now
             </Button>
           </div>
         </div>
 
         {/* Quality Checks Card */}
-        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
-          <Search className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden hover:shadow-xl hover:-translate-y-2 hover:border-primary/30 transition-all duration-500 group animate-fade-in" style={{ animationDelay: "400ms" }}>
+          <Search className="absolute top-6 right-6 w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:scale-125 transition-all duration-300" />
           <div className="space-y-3">
-            <h3 className="text-lg font-bold text-foreground">Quality checks</h3>
+            <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">Quality checks</h3>
             <p className="text-sm text-muted-foreground">
               Check product price, QC, and more.
             </p>
-            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl">
+            <Button className="w-full gradient-hero text-white hover:opacity-90 rounded-xl hover:scale-[1.02] transition-transform duration-300">
               Search now
             </Button>
           </div>
