@@ -71,9 +71,9 @@ const Catalog = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gray-950">
       {/* Hero Header with Murphy Banner */}
-      <div className="relative border-b border-table-border bg-purple-100 overflow-hidden">
+      <div className="relative border-b border-gray-800 bg-gray-900 overflow-hidden">
         {/* Murphy Banner Image - Larger */}
         <div className="flex justify-center pt-12 pb-2">
           <img 
@@ -89,7 +89,7 @@ const Catalog = () => {
           <div className="container mx-auto px-4 py-2 md:py-4 relative">
             <div className="text-center max-w-4xl mx-auto">
               <div className="animate-fade-in">
-                <p className="text-sm md:text-lg text-gray-700 mb-6 md:mb-8 animate-slide-up">
+                <p className="text-sm md:text-lg text-gray-400 mb-6 md:mb-8 animate-slide-up">
                   Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
                 </p>
               </div>
@@ -99,14 +99,14 @@ const Catalog = () => {
                 <Button
                   variant="outline"
                   onClick={() => setShowEmailSignup(true)}
-                  className="h-12 px-8 text-base bg-white/90 border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 rounded-xl font-medium shadow-soft"
+                  className="h-12 px-8 text-base bg-transparent border-2 border-gray-600 text-white hover:bg-gray-800 hover:border-gray-500 rounded-xl font-medium"
                 >
                   <Mail className="mr-2 h-5 w-5" />
                   Join Community
                 </Button>
                 <Button
                   onClick={() => document.getElementById('product-table')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="h-12 px-8 text-base gradient-hero hover:opacity-90 rounded-xl font-medium shadow-medium hover-lift"
+                  className="h-12 px-8 text-base bg-white text-gray-900 hover:bg-gray-200 rounded-xl font-medium"
                 >
                   Browse Finds
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -115,7 +115,7 @@ const Catalog = () => {
               
               {/* Email Signup Modal */}
               {showEmailSignup && (
-                <div className="bg-card/95 backdrop-blur-sm border-2 border-primary/20 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium animate-scale-in">
+                <div className="bg-gray-800/95 backdrop-blur-sm border-2 border-gray-700 rounded-xl p-6 max-w-md mx-auto mb-8 shadow-medium animate-scale-in">
                   <form onSubmit={handleEmailSignup} className="space-y-4">
                     <Input
                       type="email"
@@ -123,17 +123,17 @@ const Catalog = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="h-12 text-base border-2 border-primary/30 focus:border-primary"
+                      className="h-12 text-base border-2 border-gray-600 bg-gray-900 text-white placeholder:text-gray-500 focus:border-purple-500"
                     />
                     <div className="flex gap-2">
-                      <Button type="submit" className="flex-1 h-12 gradient-hero">
+                      <Button type="submit" className="flex-1 h-12 bg-purple-600 hover:bg-purple-700 text-white">
                         Subscribe 🚀
                       </Button>
                       <Button 
                         type="button" 
                         variant="outline" 
                         onClick={() => setShowEmailSignup(false)}
-                        className="px-4 border-2"
+                        className="px-4 border-2 border-gray-600 text-white hover:bg-gray-700"
                       >
                         ❌
                       </Button>
@@ -144,17 +144,17 @@ const Catalog = () => {
               
               {/* Quick Stats */}
               <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">3000+</div>
-                  <div className="text-xs md:text-sm text-gray-600">Products</div>
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border border-gray-700 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">3000+</div>
+                  <div className="text-xs md:text-sm text-gray-400">Products</div>
                 </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">500+</div>
-                  <div className="text-xs md:text-sm text-gray-600">Verified Sellers</div>
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border border-gray-700 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">500+</div>
+                  <div className="text-xs md:text-sm text-gray-400">Verified Sellers</div>
                 </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">24/7</div>
-                  <div className="text-xs md:text-sm text-gray-600">Updates</div>
+                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border border-gray-700 hover-scale">
+                  <div className="text-xl md:text-2xl font-bold text-white">24/7</div>
+                  <div className="text-xs md:text-sm text-gray-400">Updates</div>
                 </div>
               </div>
             </div>
@@ -163,7 +163,7 @@ const Catalog = () => {
       </div>
 
       {/* Product Table */}
-      <div id="product-table" className="container mx-auto px-4 py-8">
+      <div id="product-table" className="container mx-auto px-4 py-8 bg-gray-950">
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
