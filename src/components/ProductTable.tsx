@@ -25,7 +25,12 @@ const ProductTable = ({ products }: ProductTableProps) => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+      {/* Section Header */}
+      <div className="text-center space-y-2">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Latest products</h2>
+        <p className="text-muted-foreground">Latest W2C drops from trusted sellers.</p>
+      </div>
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-in">
@@ -94,13 +99,6 @@ const ProductTable = ({ products }: ProductTableProps) => {
           </div>
         ))}
       </div>
-
-      {/* Empty State */}
-      {products.length === 0 && (
-        <div className="text-center py-12">
-          <p className="text-muted-foreground">No products found.</p>
-        </div>
-      )}
 
       {/* Product Modal */}
       <ProductModal
