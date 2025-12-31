@@ -15,8 +15,7 @@ const ToolsSection = () => {
               Register on Kakobuy and claim coupons worth 410 dollars.
             </p>
             <Button 
-              variant="outline" 
-              className="bg-card border-border hover:bg-secondary"
+              className="gradient-hero text-white hover:opacity-90"
             >
               Check
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -32,7 +31,7 @@ const ToolsSection = () => {
             <p className="text-muted-foreground">
               See how to order on Kakobuy.
             </p>
-            <Button className="w-full bg-secondary hover:bg-secondary/80 text-foreground border-0">
+            <Button className="w-full gradient-hero text-white hover:opacity-90">
               Watch now
             </Button>
           </div>
@@ -49,7 +48,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Track your parcel status with ease.
             </p>
-            <Button className="w-full bg-secondary hover:bg-secondary/80 text-foreground border-0">
+            <Button className="w-full gradient-hero text-white hover:opacity-90">
               Track package
             </Button>
           </div>
@@ -63,7 +62,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Convert links from multiple platforms.
             </p>
-            <Button className="w-full bg-secondary hover:bg-secondary/80 text-foreground border-0">
+            <Button className="w-full gradient-hero text-white hover:opacity-90">
               Convert now
             </Button>
           </div>
@@ -77,7 +76,7 @@ const ToolsSection = () => {
             <p className="text-sm text-muted-foreground">
               Check product price, QC, and more.
             </p>
-            <Button className="w-full bg-secondary hover:bg-secondary/80 text-foreground border-0">
+            <Button className="w-full gradient-hero text-white hover:opacity-90">
               Search now
             </Button>
           </div>
