@@ -75,11 +75,11 @@ const Catalog = () => {
       {/* Hero Header with Murphy Banner */}
       <div className="relative bg-gradient-to-b from-purple-500 via-pink-300 via-pink-100 to-white overflow-hidden">
         {/* Murphy Banner Image - Larger */}
-        <div className="flex justify-center pt-12 pb-2 animate-fade-in">
+        <div className="flex justify-center pt-12 pb-2">
           <img 
             src={murphyBanner}
             alt="Murphy Reps Banner"
-            className="h-24 md:h-48 object-contain hover:scale-105 transition-transform duration-500"
+            className="h-24 md:h-48 object-contain"
           />
         </div>
         
@@ -143,22 +143,6 @@ const Catalog = () => {
                   </form>
                 </div>
               )}
-              
-              {/* Quick Stats */}
-              <div className="flex justify-center gap-6 md:gap-8 text-center pb-12 md:pb-20">
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "500ms" }}>
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">3000+</div>
-                  <div className="text-xs md:text-sm text-gray-600">Products</div>
-                </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "600ms" }}>
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">500+</div>
-                  <div className="text-xs md:text-sm text-gray-600">Verified Sellers</div>
-                </div>
-                <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover:scale-110 hover:shadow-lg hover:border-purple-300 transition-all duration-300 animate-fade-in" style={{ animationDelay: "700ms" }}>
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">24/7</div>
-                  <div className="text-xs md:text-sm text-gray-600">Updates</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
