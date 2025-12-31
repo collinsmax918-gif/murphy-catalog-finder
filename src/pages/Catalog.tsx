@@ -83,14 +83,6 @@ const Catalog = () => {
           />
         </div>
         
-        {/* Murphy Finds Title Image - Larger */}
-        <div className="flex justify-center pb-0 md:pb-2">
-          <img 
-            src={murphyFindsTitle}
-            alt="Murphy Finds Huge Spreadsheet"
-            className="h-20 md:h-40 object-contain"
-          />
-        </div>
         
         {/* Content overlay */}
         <div className="">
