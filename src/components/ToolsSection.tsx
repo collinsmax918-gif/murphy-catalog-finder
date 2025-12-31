@@ -7,7 +7,7 @@ const ToolsSection = () => {
       {/* Top Row - Two Large Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Main Promo Card */}
-        <div className="bg-card border border-border rounded-2xl p-8 relative overflow-hidden">
+        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden">
           <Lock className="absolute top-6 right-6 w-6 h-6 text-muted-foreground" />
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-primary">KakoBuy</h3>
@@ -24,7 +24,7 @@ const ToolsSection = () => {
         </div>
 
         {/* Guide Card */}
-        <div className="bg-card border border-border rounded-2xl p-8 relative overflow-hidden">
+        <div className="bg-secondary/50 border border-border rounded-2xl p-8 relative overflow-hidden">
           <FileText className="absolute top-6 right-6 w-6 h-6 text-muted-foreground" />
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-foreground">Guide</h3>
@@ -41,7 +41,7 @@ const ToolsSection = () => {
       {/* Bottom Row - Three Small Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Tracking Card */}
-        <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden">
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
           <Package className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
           <div className="space-y-3">
             <h3 className="text-lg font-bold text-foreground">Tracking</h3>
@@ -55,7 +55,7 @@ const ToolsSection = () => {
         </div>
 
         {/* Link Converter Card */}
-        <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden">
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
           <Link className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
           <div className="space-y-3">
             <h3 className="text-lg font-bold text-foreground">Link converter</h3>
@@ -69,7 +69,7 @@ const ToolsSection = () => {
         </div>
 
         {/* Quality Checks Card */}
-        <div className="bg-card border border-border rounded-2xl p-6 relative overflow-hidden">
+        <div className="bg-secondary/50 border border-border rounded-2xl p-6 relative overflow-hidden">
           <Search className="absolute top-6 right-6 w-5 h-5 text-muted-foreground" />
           <div className="space-y-3">
             <h3 className="text-lg font-bold text-foreground">Quality checks</h3>
