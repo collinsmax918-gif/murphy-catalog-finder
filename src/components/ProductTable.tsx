@@ -37,7 +37,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
         {products.slice(0, 3).map((product, index) => (
           <div
             key={product.sku}
-            className="bg-secondary/50 border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group flex flex-col animate-fade-in"
+            className="bg-secondary/50 border border-border rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-150 group flex flex-col animate-fade-in"
             style={{ animationDelay: `${index * 150}ms` }}
           >
             {/* Product Image */}
@@ -45,7 +45,7 @@ const ProductTable = ({ products }: ProductTableProps) => {
               <ProductImage
                 src={product.image_url}
                 alt={product.title}
-                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-150"
               />
               
               {/* Heart Button */}
