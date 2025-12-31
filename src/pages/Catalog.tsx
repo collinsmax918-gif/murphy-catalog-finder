@@ -107,13 +107,14 @@ const Catalog = () => {
                 <Button
                   variant="outline"
                   onClick={() => setShowEmailSignup(true)}
-                  className="h-12 px-8 text-base bg-white border-2 border-gray-300 text-gray-800 hover:bg-gray-100 rounded-full font-medium"
+                  className="h-12 px-8 text-base bg-white/90 border-2 border-purple-300 text-purple-700 hover:bg-purple-50 hover:border-purple-400 rounded-xl font-medium shadow-soft"
                 >
+                  <Mail className="mr-2 h-5 w-5" />
                   Join Community
                 </Button>
                 <Button
                   onClick={() => document.getElementById('product-table')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="h-12 px-8 text-base bg-gray-900 text-white hover:bg-gray-800 rounded-full font-medium"
+                  className="h-12 px-8 text-base gradient-hero hover:opacity-90 rounded-xl font-medium shadow-medium hover-lift"
                 >
                   Browse Finds
                   <ArrowRight className="ml-2 h-5 w-5" />
