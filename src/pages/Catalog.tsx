@@ -156,7 +156,7 @@ const Catalog = () => {
       </div>
 
       {/* Product Table */}
-      <div id="product-table" className="container mx-auto px-4 py-8">
+      <div id="product-table" className="container mx-auto px-4 pt-16 pb-8">
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
