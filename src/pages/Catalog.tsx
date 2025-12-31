@@ -91,11 +91,6 @@ const Catalog = () => {
         <div className="flex-1 flex items-start">
           <div className="container mx-auto px-4 py-4 md:py-8 relative">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
-                <p className="text-base md:text-xl text-gray-700 mb-10 md:mb-12">
-                  Discover and browse my BEST Finds and Recent Pickups from my videos. 📥
-                </p>
-              </div>
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
