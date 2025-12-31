@@ -143,7 +143,7 @@ const Catalog = () => {
               )}
               
               {/* Quick Stats */}
-              <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
+              <div className="flex justify-center gap-6 md:gap-8 text-center animate-fade-in pb-12 md:pb-20" style={{ animationDelay: "0.3s" }}>
                 <div className="bg-white/50 backdrop-blur-sm rounded-xl px-4 md:px-6 py-4 border-2 border-gray-200 hover-scale">
                   <div className="text-xl md:text-2xl font-bold text-gray-800">3000+</div>
                   <div className="text-xs md:text-sm text-gray-600">Products</div>
